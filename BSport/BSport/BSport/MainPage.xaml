@@ -2,13 +2,22 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:BSport"
-             x:Class="BSport.MainPage">
+             x:Class="BSport.MainPage"
+             BackgroundColor="LightGray">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+    <StackLayout Margin="30" Spacing="60">
+        <Label Text="Bienvenido a BSport!" 
+            HorizontalOptions="Center"
+            FontSize="30"
+            TextColor="BlueViolet"/>
+        <Label Text="Log in" HorizontalOptions="Center" FontSize="26"/>
+        <StackLayout Spacing="10">
+            <Label x:Name="nombre" Text="Nombre" HorizontalOptions="Center" FontSize="20"/>
+            <Entry x:Name="name" HorizontalOptions="Center" MinimumWidthRequest="200" WidthRequest="200" FontSize="16" MaxLength="15"/>
+            <Label x:Name="contraseña" Text="Contraseña" HorizontalOptions="Center" FontSize="20"/>
+            <Entry x:Name="pass" MinimumWidthRequest="200" WidthRequest="200" HorizontalOptions="Center" MaxLength="15"/>
+        </StackLayout>
+        <Button Text="Entrar" Clicked="OnEnterClicked" WidthRequest="200" HorizontalOptions="Center"/>
     </StackLayout>
 
 </ContentPage>
