@@ -12,16 +12,23 @@ namespace BSport
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Menu : ContentPage
     {
-        private string nombre;
         public Menu(string nombre)
         {
             InitializeComponent();
-            this.nombre = nombre;
-            test.Text = "Nombre de usuario actual " + nombre;
         }
-        async void OnEnterClicked(object sender, EventArgs args)
+        async void OnBtnMenuClicked(object sender, EventArgs args)
         {
-            await Navigation.PushAsync(new Padel());
+            switch (((Button)sender).Text)
+            {
+                case "Pádel":
+                    await Navigation.PushAsync(new Padel());
+                    break;
+                case "Fútbol":
+                    Console.WriteLine("POS VA A SER FURBO");
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

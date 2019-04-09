@@ -14,7 +14,7 @@ namespace BSport
         {
             InitializeComponent();
         }
-        async void OnEnterClicked(object sender, EventArgs args)
+        public async void OnEnterClicked(object sender, EventArgs args)
         {
             if (name.Text != null && name.Text.Trim() != "" && pass.Text != null && pass.Text.Trim() != "")
             {

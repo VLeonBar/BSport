@@ -3,10 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BSport.Padel">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Orientation="Vertical">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.2*"/>
+                </Grid.RowDefinitions>
+            <Button Text="NickName"/>
+            <Label Text="1200 Gold II" VerticalOptions="Start" Grid.Column="1"/>
+            <Button Text="Hola" Grid.Column="2"/>
+            </Grid>
+            <!--Aquí irá la lista personalizada, de tenerla-->
+            <ListView/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

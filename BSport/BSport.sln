@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSport.iOS", "BSport\BSport
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSport.UWP", "BSport\BSport.UWP\BSport.UWP.csproj", "{C61EF263-566F-4FC5-A58E-C924A132C65B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSport", "BSport\BSport\BSport.csproj", "{07C8A873-FE80-45B7-BAF8-CF247BB91A20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BSport", "BSport\BSport\BSport.csproj", "{07C8A873-FE80-45B7-BAF8-CF247BB91A20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
