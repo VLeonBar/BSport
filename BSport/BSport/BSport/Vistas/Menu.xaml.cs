@@ -12,7 +12,7 @@ namespace BSport
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Menu : ContentPage
     {
-        public Menu(string nombre)
+        public Menu()
         {
             InitializeComponent();
         }

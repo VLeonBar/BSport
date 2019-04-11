@@ -9,28 +9,9 @@ namespace BSport
 {
     public partial class MainPage : ContentPage
     {
-        private bool isValid = false;
         public MainPage()
         {
             InitializeComponent();
-        }
-        public async void OnEnterClicked(object sender, EventArgs args)
-        {
-            if (name.Text != null && name.Text.Trim() != "" && pass.Text != null && pass.Text.Trim() != "")
-            {
-                nombre.Text = "Válido";
-                contraseña.Text = "Válida";
-                isValid = true;
-            }
-            else
-            {
-                nombre.Text = "No válido";
-                contraseña.Text = "No válida";
-            }
-            if (isValid)
-            {
-                await Navigation.PushAsync(new Menu(name.Text));
-            }
         }
     }
 }

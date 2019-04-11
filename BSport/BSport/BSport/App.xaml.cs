@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BSport.Vistas;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,8 +11,7 @@ namespace BSport
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new Login());
         }
 
         protected override void OnStart()

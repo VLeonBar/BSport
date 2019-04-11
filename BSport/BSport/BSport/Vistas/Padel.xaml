@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BSport.Padel">
+    <NavigationPage.TitleView>
+        <Label Text="Zona de Pádel" 
+            HorizontalOptions="Start"
+            FontSize="30"
+            TextColor="BlueViolet"/>
+    </NavigationPage.TitleView>
+    <ContentPage.Content x:Uid="Contenedor">
+        <StackLayout Orientation="Vertical">
+            <Grid Margin="5" BackgroundColor="DarkGray">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.2*"/>
+                </Grid.RowDefinitions>
+                <Button Text="NickName"/>
+                <Label Text="1200 Gold II" VerticalOptions="Start" Grid.Column="1"/>
+                <Button Text="Hola" Grid.Column="2"/>
+            </Grid>
+            <!--Aquí irá la lista personalizada, de tenerla-->
+            <ListView x:Name="listaPartidos" ItemsSource="{Binding Partidos}" HasUnevenRows="True" ItemSelected="OnListItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Grid Margin="5" BackgroundColor="Green">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <StackLayout Spacing="0" Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Aqua">
+                                        <Label Text="{Binding Liga}" />
+                                        <Label Text=": " />
+                                        <Label Text="{Binding PuntMedia}" />
+                                    </StackLayout>
+                                    <Image Source="{Binding Imagen}" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="3" Aspect="AspectFit"/>
+                                    <StackLayout Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                                        <Label Text="{Binding Lugar}" />
+                                    </StackLayout>
+                                    <StackLayout Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                                        <Label Text="{Binding Precio}" />
+                                    </StackLayout>
+                                    <StackLayout Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                                        <Label Text="{Binding Pista}" />
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="4" Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                                        <Label Text="{Binding Hora}" />
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                                        <Label Text="{Binding Hora}" />
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                                        <Label Text="{Binding NJugadores}" />
+                                    </StackLayout>
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -23,10 +23,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Menu.xaml">
+    <EmbeddedResource Update="Vistas\Login.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Padel.xaml">
+    <EmbeddedResource Update="Vistas\Menu.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Vistas\Padel.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
