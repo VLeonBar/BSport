@@ -8,28 +8,29 @@
             FontSize="30"
             TextColor="BlueViolet"/>
     </NavigationPage.TitleView>
-    <ContentPage.Content x:Uid="Contenedor">
+    <ContentPage.Content>
         <StackLayout Orientation="Vertical">
-            <Grid Margin="5" BackgroundColor="DarkGray">
+            <Grid BackgroundColor="DarkGray">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Button Text="NickName"/>
-                <Label Text="1200 Gold II" VerticalOptions="Start" Grid.Column="1"/>
-                <Button Text="Hola" Grid.Column="2"/>
+                <Button Text="Perfil" Grid.Row="0" Grid.RowSpan="3"/>
+                <!--NO ENTIENDO HOW TO USE LA INTERFAZ ME VOY A PEGAR UN TIRO-->
+                <Picker Title="Cambiar nivel" HorizontalOptions="Center" Grid.Row="0" Grid.Column="1"  Grid.RowSpan="3"/>
+                <!--<Picker Title="Cambiar nivel" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="2" Grid.Column="1" />-->
+                <Button Text="Ajustes" Grid.Row="0" Grid.Column="2" Grid.RowSpan="3"/>
             </Grid>
-            <!--Aquí irá la lista personalizada, de tenerla-->
             <ListView x:Name="listaPartidos" ItemsSource="{Binding Partidos}" HasUnevenRows="True" ItemSelected="OnListItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.View>
-                                <Grid Margin="5" BackgroundColor="Green">
+                                <Grid Margin="5" BackgroundColor="DarkGray">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
@@ -44,29 +45,31 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <!--<StackLayout Spacing="0" Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Aqua">
-                                        <Label Text="{Binding Liga}" />
-                                        <Label Text=": " />
-                                        <Label Text="{Binding PuntMedia}" />
-                                    </StackLayout>-->
-                                    <Image Source="{Binding Imagen}" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="4" Aspect="AspectFit"/>
+                                    <StackLayout Spacing="0" Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Aqua">
+                                        <Label Text="{Binding Nivel}" />
+                                    </StackLayout>
+                                    <Image Source="{Binding Imagen}" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="4" Aspect="AspectFit"/>
                                     <StackLayout Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
-                                        <Label Text="{Binding Lugar}" FontSize="40" Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2" />
+                                        <Label Text="{Binding Lugar}" />
                                     </StackLayout>
-                                    <StackLayout Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                                    <StackLayout Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" Orientation="Horizontal" Spacing="0" VerticalOptions="Center" HorizontalOptions="Center">
                                         <Label Text="{Binding Precio}" />
+                                        <Label Text="€" />
                                     </StackLayout>
-                                    <StackLayout Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                                    <StackLayout Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" Orientation="Horizontal" Spacing="0" VerticalOptions="Center" HorizontalOptions="Center">
+                                        <Label Text="Pista Nº" />
                                         <Label Text="{Binding Pista}" />
                                     </StackLayout>
                                     <StackLayout Grid.Column="4" Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
-                                        <Label Text="{Binding Hora}" />
+                                        <Label Text="{Binding Fecha}" />
                                     </StackLayout>
                                     <StackLayout Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
                                         <Label Text="{Binding Hora}" FontSize="Default"/>
                                     </StackLayout>
                                     <StackLayout Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
                                         <Label Text="{Binding NJugadores}" />
+                                        <Label Text=" / " />
+                                        <Label Text="{Binding MaxJugadores}" />
                                     </StackLayout>
                                 </Grid>
                             </ViewCell.View>
@@ -74,6 +77,21 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Grid BackgroundColor="DarkGray">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Button x:Name="btnVer" Text="Ver partido" Grid.Row="0" Grid.Column="1"  Grid.RowSpan="3" Clicked="OnVerClicked"/>
+                <!--NO ENTIENDO HOW TO USE LA INTERFAZ ME VOY A PEGAR UN TIRO-->
+                <Button Text="Añadir" HorizontalOptions="Center" Grid.Row="0" Grid.RowSpan="3" />
+                <!--<Picker Title="Cambiar nivel" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="2" Grid.Column="1" />-->
+                <Button Text="Crear" Grid.Row="0" Grid.Column="2" Grid.RowSpan="3"/>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

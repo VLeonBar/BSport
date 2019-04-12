@@ -8,7 +8,6 @@ namespace BSport.ModeloParaVista
     class PartidosParaPadel
     {
         public List<Partidos> Partidos { get; set; }
-        public double AnchoRequerido { get; set; }
         public PartidosParaPadel()
         {
             Partidos = new Partidos().getPartidos();

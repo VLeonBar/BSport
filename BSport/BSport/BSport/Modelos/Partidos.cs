@@ -21,27 +21,27 @@ namespace BSport.Modelos
             get { return lugar; }
             set { lugar = value; }
         }
-        private DateTime fecha;
+        private string fecha;
 
-        public DateTime Fecha
+        public string Fecha
         {
             get { return fecha; }
             set { fecha = value; }
         }
-        private DateTime hora;
+        private string hora;
 
-        public DateTime Hora
+        public string Hora
         {
             get { return hora; }
             set { hora = value; }
         }
 
-        private string liga;
+        private string nivel;
 
-        public string Liga
+        public string Nivel
         {
-            get { return liga; }
-            set { liga = value; }
+            get { return nivel; }
+            set { nivel = value; }
         }
         private int nJugadores;
 
@@ -64,13 +64,6 @@ namespace BSport.Modelos
             get { return precio; }
             set { precio = value; }
         }
-        private int puntMedia;
-
-        public int PuntMedia
-        {
-            get { return puntMedia; }
-            set { puntMedia = value; }
-        }
 
         private string imagen;
 
@@ -87,34 +80,33 @@ namespace BSport.Modelos
             set { pista = value; }
         }
 
-
+        const int MAXJUGADORES = 4;
         public List<Partidos> getPartidos()
         {
             List<Partidos> partidos = new List<Partidos>()
             {
+                //Cargar aquí los datos de la base de datos y rellenar el objeto... (???????????)
                 new Partidos(){
-                    Lugar="Barreiro",Fecha=DateTime.Today,Hora=DateTime.Now,Liga="Platino",NJugadores=2,MaxJugadores=4,Precio=2.5f,PuntMedia=1634,Imagen="palapadel.png",Pista=4
+                    IdPartido=1,Lugar="Barreiro",Fecha="20/4/2019",Hora="18:00-19:30",Nivel="Intermedio",NJugadores=2,MaxJugadores=MAXJUGADORES,Precio=2.5f,Imagen="palapadel.png",Pista=4
                 },new Partidos(){
-                    Lugar="Navia",Fecha=DateTime.Today,Hora=DateTime.Now,Liga="Platino",NJugadores=2,MaxJugadores=4,Precio=2.5f,PuntMedia=1634,Imagen="palapadel.png",Pista=4
+                    IdPartido=1,Lugar="Navia",Fecha="20/4/2019",Hora="18:00-19:30",Nivel="Intermedio",NJugadores=2,MaxJugadores=MAXJUGADORES,Precio=2.5f,Imagen="palapadel.png",Pista=4
                 },new Partidos(){
-                    Lugar="Air Padel",Fecha=DateTime.Today,Hora=DateTime.Now,Liga="Platino",NJugadores=2,MaxJugadores=4,Precio=2.5f,PuntMedia=1634,Imagen="palapadel.png",Pista=4
+                    IdPartido=1,Lugar="IPadel",Fecha="20/4/2019",Hora="18:00-19:30",Nivel="Intermedio",NJugadores=2,MaxJugadores=MAXJUGADORES,Precio=2.5f,Imagen="palapadel.png",Pista=4
                 },new Partidos(){
-                    Lugar="Indoor Padel",Fecha=DateTime.Today,Hora=DateTime.Now,Liga="Platino",NJugadores=2,MaxJugadores=4,Precio=2.5f,PuntMedia=1634,Imagen="palapadel.png",Pista=4
+                    IdPartido=1,Lugar="Navia",Fecha="20/4/2019",Hora="18:00-19:30",Nivel="Intermedio",NJugadores=2,MaxJugadores=MAXJUGADORES,Precio=2.5f,Imagen="palapadel.png",Pista=4
                 },new Partidos(){
-                    Lugar="Navia",Fecha=DateTime.Today,Hora=DateTime.Now,Liga="Platino",NJugadores=2,MaxJugadores=4,Precio=2.5f,PuntMedia=1634,Imagen="palapadel.png",Pista=4
+                    IdPartido=1,Lugar="IPadel",Fecha="20/4/2019",Hora="18:00-19:30",Nivel="Intermedio",NJugadores=2,MaxJugadores=MAXJUGADORES,Precio=2.5f,Imagen="palapadel.png",Pista=4
                 },new Partidos(){
-                    Lugar="Navia",Fecha=DateTime.Today,Hora=DateTime.Now,Liga="Platino",NJugadores=2,MaxJugadores=4,Precio=2.5f,PuntMedia=1634,Imagen="palapadel.png",Pista=4
+                    IdPartido=1,Lugar="Navia",Fecha="20/4/2019",Hora="18:00-19:30",Nivel="Intermedio",NJugadores=2,MaxJugadores=MAXJUGADORES,Precio=2.5f,Imagen="palapadel.png",Pista=4
                 },new Partidos(){
-                    Lugar="Navia",Fecha=DateTime.Today,Hora=DateTime.Now,Liga="Platino",NJugadores=2,MaxJugadores=4,Precio=2.5f,PuntMedia=1634,Imagen="palapadel.png",Pista=4
+                    IdPartido=1,Lugar="IPadel",Fecha="20/4/2019",Hora="18:00-19:30",Nivel="Intermedio",NJugadores=2,MaxJugadores=MAXJUGADORES,Precio=2.5f,Imagen="palapadel.png",Pista=4
                 },new Partidos(){
-                    Lugar="Navia",Fecha=DateTime.Today,Hora=DateTime.Now,Liga="Platino",NJugadores=2,MaxJugadores=4,Precio=2.5f,PuntMedia=1634,Imagen="palapadel.png",Pista=4
+                    IdPartido=1,Lugar="Navia",Fecha="20/4/2019",Hora="18:00-19:30",Nivel="Intermedio",NJugadores=2,MaxJugadores=MAXJUGADORES,Precio=2.5f,Imagen="palapadel.png",Pista=4
                 },new Partidos(){
-                    Lugar="Navia",Fecha=DateTime.Today,Hora=DateTime.Now,Liga="Platino",NJugadores=2,MaxJugadores=4,Precio=2.5f,PuntMedia=1634,Imagen="palapadel.png",Pista=4
-                }
+                    IdPartido=1,Lugar="IPadel",Fecha="20/4/2019",Hora="18:00-19:30",Nivel="Intermedio",NJugadores=2,MaxJugadores=MAXJUGADORES,Precio=2.5f,Imagen="palapadel.png",Pista=4
+                },
             };
             return partidos;
         }
-
-
     }
 }

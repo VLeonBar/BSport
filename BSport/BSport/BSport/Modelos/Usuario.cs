@@ -20,6 +20,13 @@ namespace BSport.Modelos
             get { return contraseña; }
             set { contraseña = value; }
         }
+        private int idUsuario;
+
+        public int IdUsuario
+        {
+            get { return idUsuario; }
+            set { idUsuario = value; }
+        }
 
         public Usuario()
         {
@@ -31,5 +38,6 @@ namespace BSport.Modelos
             Nombre = nombre;
             Contraseña = contraseña;
         }
+
     }
 }
