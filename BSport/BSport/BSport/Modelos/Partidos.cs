@@ -93,13 +93,13 @@ namespace BSport.Modelos
             List<Partidos> partidos = new List<Partidos>()
             {
                 new Partidos(){
-                    Lugar="Navia",Fecha=DateTime.Today,Hora=DateTime.Now,Liga="Platino",NJugadores=2,MaxJugadores=4,Precio=2.5f,PuntMedia=1634,Imagen="palapadel.png",Pista=4
+                    Lugar="Barreiro",Fecha=DateTime.Today,Hora=DateTime.Now,Liga="Platino",NJugadores=2,MaxJugadores=4,Precio=2.5f,PuntMedia=1634,Imagen="palapadel.png",Pista=4
                 },new Partidos(){
                     Lugar="Navia",Fecha=DateTime.Today,Hora=DateTime.Now,Liga="Platino",NJugadores=2,MaxJugadores=4,Precio=2.5f,PuntMedia=1634,Imagen="palapadel.png",Pista=4
                 },new Partidos(){
-                    Lugar="Navia",Fecha=DateTime.Today,Hora=DateTime.Now,Liga="Platino",NJugadores=2,MaxJugadores=4,Precio=2.5f,PuntMedia=1634,Imagen="palapadel.png",Pista=4
+                    Lugar="Air Padel",Fecha=DateTime.Today,Hora=DateTime.Now,Liga="Platino",NJugadores=2,MaxJugadores=4,Precio=2.5f,PuntMedia=1634,Imagen="palapadel.png",Pista=4
                 },new Partidos(){
-                    Lugar="Navia",Fecha=DateTime.Today,Hora=DateTime.Now,Liga="Platino",NJugadores=2,MaxJugadores=4,Precio=2.5f,PuntMedia=1634,Imagen="palapadel.png",Pista=4
+                    Lugar="Indoor Padel",Fecha=DateTime.Today,Hora=DateTime.Now,Liga="Platino",NJugadores=2,MaxJugadores=4,Precio=2.5f,PuntMedia=1634,Imagen="palapadel.png",Pista=4
                 },new Partidos(){
                     Lugar="Navia",Fecha=DateTime.Today,Hora=DateTime.Now,Liga="Platino",NJugadores=2,MaxJugadores=4,Precio=2.5f,PuntMedia=1634,Imagen="palapadel.png",Pista=4
                 },new Partidos(){

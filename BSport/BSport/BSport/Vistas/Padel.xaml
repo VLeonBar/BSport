@@ -17,7 +17,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Button Text="NickName"/>
                 <Label Text="1200 Gold II" VerticalOptions="Start" Grid.Column="1"/>
@@ -44,14 +44,14 @@
                                         <RowDefinition Height="*"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <StackLayout Spacing="0" Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Aqua">
+                                    <!--<StackLayout Spacing="0" Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Aqua">
                                         <Label Text="{Binding Liga}" />
                                         <Label Text=": " />
                                         <Label Text="{Binding PuntMedia}" />
-                                    </StackLayout>
-                                    <Image Source="{Binding Imagen}" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="3" Aspect="AspectFit"/>
-                                    <StackLayout Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
-                                        <Label Text="{Binding Lugar}" />
+                                    </StackLayout>-->
+                                    <Image Source="{Binding Imagen}" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="4" Aspect="AspectFit"/>
+                                    <StackLayout Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                                        <Label Text="{Binding Lugar}" FontSize="40" Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2" />
                                     </StackLayout>
                                     <StackLayout Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
                                         <Label Text="{Binding Precio}" />
@@ -63,7 +63,7 @@
                                         <Label Text="{Binding Hora}" />
                                     </StackLayout>
                                     <StackLayout Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
-                                        <Label Text="{Binding Hora}" />
+                                        <Label Text="{Binding Hora}" FontSize="Default"/>
                                     </StackLayout>
                                     <StackLayout Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
                                         <Label Text="{Binding NJugadores}" />
