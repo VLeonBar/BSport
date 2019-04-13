@@ -21,7 +21,19 @@
                 </Grid.RowDefinitions>
                 <Button Text="Perfil" Grid.Row="0" Grid.RowSpan="3"/>
                 <!--NO ENTIENDO HOW TO USE LA INTERFAZ ME VOY A PEGAR UN TIRO-->
-                <Picker Title="Cambiar nivel" HorizontalOptions="Center" Grid.Row="0" Grid.Column="1"  Grid.RowSpan="3"/>
+                <Picker Title="Cambiar nivel" HorizontalOptions="Center" Grid.Row="0" Grid.Column="1"  Grid.RowSpan="3">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Básico I</x:String>
+                            <x:String>Básico II</x:String>
+                            <x:String>Intermedio I</x:String>
+                            <x:String>Intermedio II</x:String>
+                            <x:String>Intermedio III</x:String>
+                            <x:String>Avanzado I</x:String>
+                            <x:String>Avanzado II</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
                 <!--<Picker Title="Cambiar nivel" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="2" Grid.Column="1" />-->
                 <Button Text="Ajustes" Grid.Row="0" Grid.Column="2" Grid.RowSpan="3"/>
             </Grid>
@@ -90,7 +102,7 @@
                 <!--NO ENTIENDO HOW TO USE LA INTERFAZ ME VOY A PEGAR UN TIRO-->
                 <Button Text="Añadir" HorizontalOptions="Center" Grid.Row="0" Grid.RowSpan="3" />
                 <!--<Picker Title="Cambiar nivel" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="2" Grid.Column="1" />-->
-                <Button Text="Crear" Grid.Row="0" Grid.Column="2" Grid.RowSpan="3"/>
+                <Button Text="Crear Partido" Grid.Row="0" Grid.Column="2" Grid.RowSpan="3" Clicked="OnCrearPartidoClicked"/>
             </Grid>
         </StackLayout>
     </ContentPage.Content>

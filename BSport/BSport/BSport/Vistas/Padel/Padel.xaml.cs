@@ -1,5 +1,6 @@
 ﻿using BSport.ModeloParaVista;
 using BSport.Modelos;
+using BSport.Vistas;
 using BSport.Vistas.Padel;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,10 @@ namespace BSport
         {
             await Navigation.PushAsync(new PadelPartido(p));
 
+        }
+        async public void OnCrearPartidoClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CrearPartido());
         }
     }
 }

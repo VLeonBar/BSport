@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BSport.Vistas.CrearPartido">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Lugar" VerticalOptions="Center"/>
+                <Entry Placeholder="Ej. iPadel"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Fecha" VerticalOptions="Center"/>
+                <DatePicker/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Hora de inicio" VerticalOptions="Center"/>
+                <TimePicker/>
+                <Label Text="Hora de fin" VerticalOptions="Center"/>
+                <TimePicker/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Nivel" VerticalOptions="Center"/>
+                <Picker x:Name="picker" Title="Selecciona el nivel del partido" TextColor="Blue" VerticalOptions="Center">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Básico I</x:String>
+                            <x:String>Básico II</x:String>
+                            <x:String>Intermedio I</x:String>
+                            <x:String>Intermedio II</x:String>
+                            <x:String>Intermedio III</x:String>
+                            <x:String>Avanzado I</x:String>
+                            <x:String>Avanzado II</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                <Label Text="Precio" VerticalOptions="Center"/>
+                <Entry Placeholder="Precio por persona" VerticalOptions="Center"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

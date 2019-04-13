@@ -11,7 +11,7 @@ namespace BSport
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new Padel());
+            MainPage = new NavigationPage(new Login());
         }
 
         protected override void OnStart()
