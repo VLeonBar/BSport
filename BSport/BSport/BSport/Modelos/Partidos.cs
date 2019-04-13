@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BSport.Funciones;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +7,7 @@ namespace BSport.Modelos
 {
     class Partidos
     {
+        private Func f;
         private int idPartido;
 
         public int IdPartido
@@ -83,9 +85,11 @@ namespace BSport.Modelos
         const int MAXJUGADORES = 4;
         public List<Partidos> getPartidos()
         {
+            f = new Func();
             List<Partidos> partidos = new List<Partidos>()
             {
                 //Cargar aquí los datos de la base de datos y rellenar el objeto... (???????????)
+                (Partidos)f.getDatos(),
                 new Partidos(){
                     IdPartido=1,Lugar="Barreiro",Fecha="20/4/2019",Hora="18:00-19:30",Nivel="Intermedio",NJugadores=2,MaxJugadores=MAXJUGADORES,Precio=2.5f,Imagen="palapadel.png",Pista=4
                 },new Partidos(){
@@ -104,7 +108,7 @@ namespace BSport.Modelos
                     IdPartido=1,Lugar="Navia",Fecha="20/4/2019",Hora="18:00-19:30",Nivel="Intermedio",NJugadores=2,MaxJugadores=MAXJUGADORES,Precio=2.5f,Imagen="palapadel.png",Pista=4
                 },new Partidos(){
                     IdPartido=1,Lugar="IPadel",Fecha="20/4/2019",Hora="18:00-19:30",Nivel="Intermedio",NJugadores=2,MaxJugadores=MAXJUGADORES,Precio=2.5f,Imagen="palapadel.png",Pista=4
-                },
+                }
             };
             return partidos;
         }
