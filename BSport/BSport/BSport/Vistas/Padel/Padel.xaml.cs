@@ -32,7 +32,10 @@ namespace BSport
         }
         async public void OnVerClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new PadelPartido(p));
+            if (p != null)
+            {
+                await Navigation.PushAsync(new PadelPartido(p));
+            }
 
         }
         async public void OnCrearPartidoClicked(object sender, EventArgs e)

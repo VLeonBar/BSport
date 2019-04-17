@@ -17,14 +17,18 @@ namespace BSport.Vistas
         {
             InitializeComponent();
         }
-        public async void OnEnterClicked(object sender, EventArgs args)
+        public async void OnEntrarClicked(object sender, EventArgs args)
         {
-            ConexionBD bd = new ConexionBD();
-            if (bd.conectaBD())
-            {
-                name.Text = "CONECTADO";
-                await Navigation.PushAsync(new Menu());
-            }
+            await Navigation.PushAsync(new Menu());
+            //ConexionBD bd = new ConexionBD();
+            //if (bd.ConectaBD())
+            //{
+            //    name.Text = "CONECTADO";
+            //}
+        }
+        public async void OnRegistroClicked(object sender, EventArgs args)
+        {
+            await Navigation.PushAsync(new Registro());
         }
     }
 }

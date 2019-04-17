@@ -20,11 +20,15 @@
 
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.0.15" />
-    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
+    <PackageReference Include="Xamarin.Forms" Version="3.6.0.293080" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="Vistas\CrearPartido.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Vistas\FiltrarPartidos.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Vistas\Login.xaml">
@@ -39,5 +43,38 @@
     <EmbeddedResource Update="Vistas\Padel\PadelPartido.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Vistas\Registro.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Vistas\CrearPartido.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Vistas\FiltrarPartidos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Vistas\Login.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Vistas\Menu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Vistas\Padel\Padel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Vistas\Padel\PadelPartido.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Vistas\Registro.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
   </ItemGroup>
 </Project>

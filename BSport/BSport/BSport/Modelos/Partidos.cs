@@ -90,25 +90,6 @@ namespace BSport.Modelos
             {
                 //Cargar aquí los datos de la base de datos y rellenar el objeto... (???????????)
                 (Partidos)f.getDatos(),
-                new Partidos(){
-                    IdPartido=1,Lugar="Barreiro",Fecha="20/4/2019",Hora="18:00-19:30",Nivel="Intermedio",NJugadores=2,MaxJugadores=MAXJUGADORES,Precio=2.5f,Imagen="palapadel.png",Pista=4
-                },new Partidos(){
-                    IdPartido=1,Lugar="Navia",Fecha="20/4/2019",Hora="18:00-19:30",Nivel="Intermedio",NJugadores=2,MaxJugadores=MAXJUGADORES,Precio=2.5f,Imagen="palapadel.png",Pista=4
-                },new Partidos(){
-                    IdPartido=1,Lugar="IPadel",Fecha="20/4/2019",Hora="18:00-19:30",Nivel="Intermedio",NJugadores=2,MaxJugadores=MAXJUGADORES,Precio=2.5f,Imagen="palapadel.png",Pista=4
-                },new Partidos(){
-                    IdPartido=1,Lugar="Navia",Fecha="20/4/2019",Hora="18:00-19:30",Nivel="Intermedio",NJugadores=2,MaxJugadores=MAXJUGADORES,Precio=2.5f,Imagen="palapadel.png",Pista=4
-                },new Partidos(){
-                    IdPartido=1,Lugar="IPadel",Fecha="20/4/2019",Hora="18:00-19:30",Nivel="Intermedio",NJugadores=2,MaxJugadores=MAXJUGADORES,Precio=2.5f,Imagen="palapadel.png",Pista=4
-                },new Partidos(){
-                    IdPartido=1,Lugar="Navia",Fecha="20/4/2019",Hora="18:00-19:30",Nivel="Intermedio",NJugadores=2,MaxJugadores=MAXJUGADORES,Precio=2.5f,Imagen="palapadel.png",Pista=4
-                },new Partidos(){
-                    IdPartido=1,Lugar="IPadel",Fecha="20/4/2019",Hora="18:00-19:30",Nivel="Intermedio",NJugadores=2,MaxJugadores=MAXJUGADORES,Precio=2.5f,Imagen="palapadel.png",Pista=4
-                },new Partidos(){
-                    IdPartido=1,Lugar="Navia",Fecha="20/4/2019",Hora="18:00-19:30",Nivel="Intermedio",NJugadores=2,MaxJugadores=MAXJUGADORES,Precio=2.5f,Imagen="palapadel.png",Pista=4
-                },new Partidos(){
-                    IdPartido=1,Lugar="IPadel",Fecha="20/4/2019",Hora="18:00-19:30",Nivel="Intermedio",NJugadores=2,MaxJugadores=MAXJUGADORES,Precio=2.5f,Imagen="palapadel.png",Pista=4
-                }
             };
             return partidos;
         }

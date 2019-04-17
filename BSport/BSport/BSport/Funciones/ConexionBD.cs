@@ -13,11 +13,17 @@ namespace BSport.Funciones
         {
 
         }
-        public bool conectaBD()
+        public bool ConectaBD()
         {
+            MySqlConnectionStringBuilder conn_string = new MySqlConnectionStringBuilder();
+            conn_string.Server = "db4free.net";
+            conn_string.UserID = "VLeonBar";
+            conn_string.Password = "localhost";
+            conn_string.Database = "testbsport";
+
             try
             {
-                con = new MySqlConnection();
+                con = new MySqlConnection(conn_string.ToString());
                 if (con.State == ConnectionState.Closed)
                 {
                     con.Open();
