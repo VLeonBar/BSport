@@ -6,7 +6,7 @@
         <Label Text="Zona de Pádel" 
             HorizontalOptions="Start"
             FontSize="30"
-            TextColor="BlueViolet"/>
+            TextColor="White"/>
     </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">

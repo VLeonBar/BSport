@@ -2,22 +2,34 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BSport.Vistas.CrearPartido">
+    <NavigationPage.TitleView>
+        <Label Text="Crear partido" 
+            HorizontalOptions="StartAndExpand"
+            FontSize="30"
+            TextColor="White"/>
+    </NavigationPage.TitleView>
+    
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical">
+        <!--Lugar y precio del partido-->
+        <StackLayout Orientation="Vertical" Margin="10" Spacing="10" Padding="10">
             <StackLayout Orientation="Horizontal">
                 <Label Text="Lugar" VerticalOptions="Center"/>
                 <Entry Placeholder="Ej. iPadel"/>
+                <Label Text="Precio" VerticalOptions="Center"/>
+                <Entry Placeholder="Precio por persona" VerticalOptions="Center" />
             </StackLayout>
+            
             <StackLayout Orientation="Horizontal">
                 <Label Text="Fecha" VerticalOptions="Center"/>
                 <DatePicker/>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal">
                 <Label Text="Hora de inicio" VerticalOptions="Center"/>
                 <TimePicker/>
                 <Label Text="Hora de fin" VerticalOptions="Center"/>
                 <TimePicker/>
             </StackLayout>
+            <!--<StackLayout Orientation="Horizontal">
+               
+            </StackLayout>-->
             <StackLayout Orientation="Horizontal">
                 <Label Text="Nivel" VerticalOptions="Center"/>
                 <Picker x:Name="picker" Title="Selecciona el nivel del partido" TextColor="Blue" VerticalOptions="Center">
@@ -34,10 +46,29 @@
                     </Picker.ItemsSource>
                 </Picker>
             </StackLayout>
-            <StackLayout Orientation="Horizontal" VerticalOptions="Center">
-                <Label Text="Precio" VerticalOptions="Center"/>
-                <Entry Placeholder="Precio por persona" VerticalOptions="Center"/>
+            <!--<StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                
+            </StackLayout>-->
+            <StackLayout x:Name="stackStepper" Orientation="Horizontal" VerticalOptions="Center" Spacing="0">
+                <Label Text="Plazas disponibles : " VerticalOptions="Center"/>
+                <Label Text="{Binding Value}" VerticalOptions="Center"/>
+                <Stepper x:Name="stepperJugadores" Minimum="1" Maximum="3" Increment="1" ValueChanged="StepperJugadores_ValueChanged" VerticalOptions="Center" Value="3"/>
             </StackLayout>
+            <Label Text="Jugadores Inscritos" FontAttributes="Bold"/>
+            <StackLayout x:Name="stackJ1" Orientation="Horizontal" IsVisible="True" VerticalOptions="Center">
+                <Label x:Name="lblJ1" Text="Jugador 1" VerticalOptions="Center"/>
+                <Entry x:Name="entJ1" Placeholder="Nombre del jugador" VerticalOptions="Center"/>
+            </StackLayout>
+            <StackLayout x:Name="stackJ2" Orientation="Horizontal" IsVisible="False">
+                <Label x:Name="lblJ2" Text="Jugador 2" VerticalOptions="Center"/>
+                <Entry x:Name="entJ2" Placeholder="Nombre del jugador" VerticalOptions="Center"/>
+            </StackLayout>
+            <StackLayout x:Name="stackJ3" Orientation="Horizontal" IsVisible="False">
+                <Label x:Name="lblJ3" Text="Jugador 3" VerticalOptions="Center"/>
+                <Entry x:Name="entJ3" Placeholder="Nombre del jugador" VerticalOptions="Center"/>
+            </StackLayout>
+            <Button Text="Crear" HeightRequest="60" VerticalOptions="EndAndExpand"/>
+            <Button Text="Cancelar" HeightRequest="60" VerticalOptions="End"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

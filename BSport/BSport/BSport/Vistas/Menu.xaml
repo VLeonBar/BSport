@@ -13,8 +13,8 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Button Text="Pádel" Clicked="OnBtnMenuClicked" Image="C:\Users\vleon\OneDrive\Pictures\padel.png"/>
-            <Button Text="Fútbol" Grid.Column="1" Clicked="OnBtnMenuClicked"/>
+            <ImageButton x:Name="padel" Source="palapadel.png" Clicked="OnBtnPadelClicked" BackgroundColor="White"/>
+            <Button x:Name="futbol" Text="Fútbol" Grid.Column="1" Clicked="OnBtnMenuClicked"/>
             <Button Text="Tenis" Grid.Row="1" Clicked="OnBtnMenuClicked"/>
             <Button Text="Bolos" Grid.Column="1" Grid.Row="1" Clicked="OnBtnMenuClicked"/>
             <Button Text="Karting" Grid.Row="2" Clicked="OnBtnMenuClicked"/>

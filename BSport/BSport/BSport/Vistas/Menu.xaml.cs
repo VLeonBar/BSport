@@ -20,16 +20,19 @@ namespace BSport
         {
             switch (((Button)sender).Text)
             {
-                case "Pádel":
-                    await Navigation.PushAsync(new Padel());
-                    break;
+                //case "Pádel":
+                //    await Navigation.PushAsync(new Padel());
+                //    break;
                 case "Fútbol":
-
                     Console.WriteLine("POS VA A SER FURBO");
                     break;
                 default:
                     break;
             }
+        }
+        async void OnBtnPadelClicked(object sender, EventArgs args)
+        {
+            await Navigation.PushAsync(new Padel());
         }
     }
 }
