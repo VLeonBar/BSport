@@ -28,6 +28,8 @@ namespace BSport.Vistas
             {
 
                 //https://stackoverflow.com/questions/51539792/how-to-congifure-visual-studio-2017-android-emulator-to-work-on-localhost
+                //Para hacer pruebas en el servidor local desde el emulador necesitas poner esa dirección ip de lo contrario estás intentado acceder a la dirección del propio emulador. (O eso he entendido).
+                //En cambio cuando quiero acceder desde el móvil necesito una dirección IP real o local.
                 if (Device.RuntimePlatform == Device.Android)
                     Url = "http://10.0.2.2/api_bsport/select/login_user.php";
                 else if (Device.RuntimePlatform == Device.iOS)
