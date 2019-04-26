@@ -35,20 +35,19 @@ namespace BSport.Vistas
                 else if (Device.RuntimePlatform == Device.iOS)
                     Url = "http://localhost/api_bsport/select/login_user.php";
 
-                //Usuario u = new Usuario { Nombre = "lucas12", Contraseña = "patata" };
                 var postData = new List<KeyValuePair<string, string>>
                 {
                     new KeyValuePair<string, string>("login", "lucas12"),
                     new KeyValuePair<string, string>("pass", "patata")
                 };
-                //HttpRequestMessage req = new HttpRequestMessage(HttpMethod.Post, Url);
-                //req.Content = new FormUrlEncodedContent(postData);
-
                 HttpClient client = new HttpClient();
                 var response = await client.PostAsync(Url, new FormUrlEncodedContent(postData));
-
                 var content = await response.Content.ReadAsStringAsync();
-                name.Text = content;
+
+                Usuario user = JsonConvert.DeserializeObject<Usuario>(content);
+                //string login = user.login;
+                //name.Text = login;
+                Console.WriteLine(content);
             }
             catch (System.Net.WebException e)
             {
@@ -57,7 +56,6 @@ namespace BSport.Vistas
                 throw;
             }
 
-            //await Navigation.PushAsync(new Menu());
         }
         public async void OnRegistroClicked(object sender, EventArgs args)
         {

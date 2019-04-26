@@ -8,48 +8,14 @@ using Newtonsoft.Json;
 
 namespace BSport.Modelos
 {
-    internal class Usuario : INotifyPropertyChanged
+    class Usuario
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        private string nombre;
-
-        [JsonProperty("login")]
-        public string Nombre
-        {
-            get { return nombre; }
-            set
-            {
-                nombre = value;
-                OnPropertyChanged();
-            }
-        }
-        private string contraseña;
-
-        [JsonProperty("pass")]
-        public string Contraseña
-        {
-            get { return contraseña; }
-            set { contraseña = value; }
-        }
-        private int idUsuario;
-
-        [JsonProperty("id_user")]
-        public int IdUsuario
-        {
-            get { return idUsuario; }
-            set { idUsuario = value; }
-        }
-
-        public Usuario()
-        {
-            Nombre = "";
-            Contraseña = "";
-        }
+        public string Id_user { get; set; }
+        public string Login { get; set; }
+        public string Pass { get; set; }
+        public object Token { get; set; }
+        public string Email { get; set; }
+        public string Borrado { get; set; }
     }
 }
+
