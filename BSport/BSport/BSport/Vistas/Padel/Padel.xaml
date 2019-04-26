@@ -19,7 +19,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Button Text="Perfil" Grid.Row="0" Grid.RowSpan="3"/>
+                <Button x:Name="perfil" Text="Perfil" Grid.Row="0" Grid.RowSpan="3"/>
                 <!--NO ENTIENDO HOW TO USE LA INTERFAZ ME VOY A PEGAR UN TIRO-->
                 <Picker Title="Cambiar nivel" HorizontalOptions="Center" Grid.Row="0" Grid.Column="1"  Grid.RowSpan="3">
                     <Picker.ItemsSource>

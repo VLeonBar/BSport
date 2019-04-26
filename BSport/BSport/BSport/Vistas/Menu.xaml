@@ -2,23 +2,29 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BSport.Menu">
+    <NavigationPage.TitleView>
+        <Label Text="¿A qué desea jugar?" 
+            HorizontalOptions="Start"
+            FontSize="30"
+            TextColor="White"/>
+    </NavigationPage.TitleView>
     <ContentPage.Content>
-        <Grid Margin="5">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <ImageButton x:Name="padel" Source="palapadel.png" Clicked="OnBtnPadelClicked" BackgroundColor="White"/>
-            <Button x:Name="futbol" Text="Fútbol" Grid.Column="1" Clicked="OnBtnMenuClicked"/>
-            <Button Text="Tenis" Grid.Row="1" Clicked="OnBtnMenuClicked"/>
-            <Button Text="Bolos" Grid.Column="1" Grid.Row="1" Clicked="OnBtnMenuClicked"/>
-            <Button Text="Karting" Grid.Row="2" Clicked="OnBtnMenuClicked"/>
-            <Button Text="Baloncesto" Grid.Column="1" Grid.Row="2" Clicked="OnBtnMenuClicked"/>
-        </Grid>
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <ImageButton x:Name="padel" Source="palapadel.png" Clicked="OnBtnPadelClicked" BackgroundColor="White"/>
+                <Button x:Name="futbol" Text="Fútbol" Grid.Column="1" Clicked="OnBtnMenuClicked"/>
+                <Button Text="Tenis" Grid.Row="1" Clicked="OnBtnMenuClicked"/>
+                <Button Text="Bolos" Grid.Column="1" Grid.Row="1" Clicked="OnBtnMenuClicked"/>
+                <Button Text="Karting" Grid.Row="2" Clicked="OnBtnMenuClicked"/>
+                <Button Text="Baloncesto" Grid.Column="1" Grid.Row="2" Clicked="OnBtnMenuClicked"/>
+            </Grid>
     </ContentPage.Content>
 </ContentPage>

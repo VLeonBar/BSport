@@ -16,46 +16,46 @@ namespace BSport.Vistas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Login : ContentPage
     {
-        private readonly HttpClient client = new HttpClient();
-        string Url = null;
+        private RestService restService = new RestService();
+        private string Url;
         public Login()
         {
             InitializeComponent();
+            Url = "http://192.168.0.11/api_bsport/select/login_usuario.php";
         }
         public async void OnEntrarClicked(object sender, EventArgs args)
         {
-            try
-            {
-
-                //https://stackoverflow.com/questions/51539792/how-to-congifure-visual-studio-2017-android-emulator-to-work-on-localhost
-                //Para hacer pruebas en el servidor local desde el emulador necesitas poner esa dirección ip de lo contrario estás intentado acceder a la dirección del propio emulador. (O eso he entendido).
-                //En cambio cuando quiero acceder desde el móvil necesito una dirección IP real o local.
-                if (Device.RuntimePlatform == Device.Android)
-                    Url = "http://10.0.2.2/api_bsport/select/login_user.php";
-                else if (Device.RuntimePlatform == Device.iOS)
-                    Url = "http://localhost/api_bsport/select/login_user.php";
-
-                var postData = new List<KeyValuePair<string, string>>
+            info.Text = "";
+            var datosPost = new List<KeyValuePair<string, string>>
                 {
-                    new KeyValuePair<string, string>("login", "lucas12"),
-                    new KeyValuePair<string, string>("pass", "patata")
+                    new KeyValuePair<string, string>("Login", login.Text),
+                    new KeyValuePair<string, string>("Pass", pass.Text)
                 };
-                HttpClient client = new HttpClient();
-                var response = await client.PostAsync(Url, new FormUrlEncodedContent(postData));
-                var content = await response.Content.ReadAsStringAsync();
 
-                Usuario user = JsonConvert.DeserializeObject<Usuario>(content);
-                //string login = user.login;
-                //name.Text = login;
-                Console.WriteLine(content);
-            }
-            catch (System.Net.WebException e)
+            Datos datos = await restService.Post<Datos>(Url, datosPost);
+
+            switch (datos.Codigo)
             {
-                Console.WriteLine(e.Message);
-                Console.WriteLine(e.StackTrace);
-                throw;
-            }
+                case 1:
+                    info.TextColor = Color.CadetBlue;
+                    info.Text = "Credenciales correctas...";
+                    Usuario usuario = datos.Usuario;
+                    await Navigation.PushAsync(new Menu(usuario));
+                    break;
+                case 101:
+                    info.TextColor = Color.IndianRed;
+                    info.Text = datos.Mensaje;
+                    break;
+                case 102:
+                    info.TextColor = Color.IndianRed;
+                    info.Text = datos.Mensaje;
+                    break;
+                case 103:
+                    info.TextColor = Color.IndianRed;
+                    info.Text = datos.Mensaje;
+                    break;
 
+            }
         }
         public async void OnRegistroClicked(object sender, EventArgs args)
         {

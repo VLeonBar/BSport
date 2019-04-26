@@ -18,13 +18,16 @@ namespace BSport
     {
         Partidos p;
         PartidosParaPadel pp;
-        public Padel()
+        public Usuario Usuario { get; set; }
+        public Padel(Usuario usuario)
         {
             InitializeComponent();
             // TODO
             // Este constructor inicializa su array interno, es ahí dónde debo pretender hacer la petición de datos al servidor y rellenar el array mediante la base de datos. (??????)
             pp = new PartidosParaPadel();
             BindingContext = pp;
+            Usuario = usuario;
+            perfil.Text = "Perfil : " + Usuario.Nombre;
         }
         public void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
