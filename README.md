@@ -10,10 +10,8 @@ Semana 3: 8 a 14 de Abril.
 
 Semana 4 y 5: 15 a 28 de Abril.
 	Tengo diversos problemas a lo largo de la creación del Web Service, a medida que voy aprendiendo a crear la API en PHP, aprendo también a utilizar los parsers de C#, en este caso utilizo el paquete NewtonSoft.Json para parsear los Json que obtengo de la API. 
-	
 	En la API: Creo la conexión y los archivos de registro y login del usuario en la aplicación, que mediante el método POST inserta y obtiene datos de la tabla usuarios de la base de datos. Los datos se devuelven como objetos JSON.
 	En la APP: Creo las clases y la conexión a la API y trabajo enviando datos mediante POST y recibiendo los datos en JSON.
-	
 	A finales de la segunda semana, el funcionamiento del login y el registro en la APP funciona correctamente y creo las tablas de partidos y la tabla relacional entre partidos y usuarios(jugadores). Me dispongo a terminar la API para crear y ver los partidos por cada usuario. 
 	
 Semana 6: 29 de Abril a 5 de Mayo.
