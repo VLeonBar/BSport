@@ -39,22 +39,22 @@ namespace BSport.Vistas
                 case 1:
                     info.TextColor = Color.CadetBlue;
                     info.Text = "Credenciales correctas...";
-                    Usuario usuario = datos.Usuario;
+                   datos.Contenido = new Usuario();
+                    Usuario usuario = (Usuario)(datos.Contenido);
                     await Navigation.PushAsync(new Menu(usuario));
                     break;
                 case 101:
                     info.TextColor = Color.IndianRed;
-                    info.Text = datos.Mensaje;
+                    info.Text = datos.Contenido.ToString();
                     break;
                 case 102:
                     info.TextColor = Color.IndianRed;
-                    info.Text = datos.Mensaje;
+                    info.Text = datos.Contenido.ToString();
                     break;
                 case 103:
                     info.TextColor = Color.IndianRed;
-                    info.Text = datos.Mensaje;
+                    info.Text = datos.Contenido.ToString();
                     break;
-
             }
         }
         public async void OnRegistroClicked(object sender, EventArgs args)

@@ -7,7 +7,7 @@ namespace BSport.Modelos
 {
     class Partidos
     {
-        private Func f;
+        private RestService restService;
         private int idPartido;
 
         public int IdPartido
@@ -81,15 +81,21 @@ namespace BSport.Modelos
             get { return pista; }
             set { pista = value; }
         }
+        private List<KeyValuePair<int,string>> jugadores;
+
+        public List<KeyValuePair<int, string>> Jugadores
+        {
+            get { return jugadores; }
+            set { jugadores = value; }
+        }
 
         const int MAXJUGADORES = 4;
         public List<Partidos> getPartidos()
         {
-            f = new Func();
             List<Partidos> partidos = new List<Partidos>()
             {
                 //Cargar aquí los datos de la base de datos y rellenar el objeto... (???????????)
-                (Partidos)f.getDatos(),
+                
             };
             return partidos;
         }

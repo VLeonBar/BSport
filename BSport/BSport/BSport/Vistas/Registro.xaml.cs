@@ -58,28 +58,28 @@ namespace BSport.Vistas
                 {
                     case 1:
                         info.TextColor = Color.CadetBlue;
-                        info.Text = datos.Mensaje;
+                        info.Text = datos.Contenido.ToString();
                         await Navigation.PushAsync(new Login());
                         break;
                     case 101:
                         info.TextColor = Color.IndianRed;
-                        info.Text = datos.Mensaje;
+                        info.Text = datos.Contenido.ToString();
                         break;
                     case 102:
                         info.TextColor = Color.IndianRed;
-                        info.Text += datos.Mensaje;
+                        info.Text += datos.Contenido.ToString();
                         break;
                     case 103:
                         info.TextColor = Color.IndianRed;
-                        info.Text = datos.Mensaje;
+                        info.Text = datos.Contenido.ToString();
                         break;
                     case 104:
                         info.TextColor = Color.IndianRed;
-                        info.Text = datos.Mensaje;
+                        info.Text = datos.Contenido.ToString();
                         break;
                     case 105:
                         info.TextColor = Color.IndianRed;
-                        info.Text = datos.Mensaje;
+                        info.Text = datos.Contenido.ToString();
                         break;
 
                 }
