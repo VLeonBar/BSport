@@ -2,18 +2,19 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BSport.Modelos
 {
-    class Partidos
+    public class Partido
     {
-        private RestService restService;
-        private int idPartido;
 
-        public int IdPartido
+        private int id_partido;
+
+        public int Id_Partido
         {
-            get { return idPartido; }
-            set { idPartido = value; }
+            get { return id_partido; }
+            set { id_partido = value; }
         }
 
         private string lugar;
@@ -30,14 +31,21 @@ namespace BSport.Modelos
             get { return fecha; }
             set { fecha = value; }
         }
-        private string hora;
+        private string horaI;
 
-        public string Hora
+        public string HoraI
         {
-            get { return hora; }
-            set { hora = value; }
+            get { return horaI; }
+            set { horaI = value; }
         }
 
+        private string horaF;
+
+        public string HoraF
+        {
+            get { return horaF; }
+            set { horaF = value; }
+        }
         private string nivel;
 
         public string Nivel
@@ -81,23 +89,39 @@ namespace BSport.Modelos
             get { return pista; }
             set { pista = value; }
         }
-        private List<KeyValuePair<int,string>> jugadores;
+        private List<KeyValuePair<int, string>> jugadores;
 
         public List<KeyValuePair<int, string>> Jugadores
         {
             get { return jugadores; }
             set { jugadores = value; }
         }
+        //public List<Partido> GetPartidos()
+        //{
+        //    List<Partido> partidos = new List<Partido>() {
+        //        new Partido(){
+        //            Id_Partido = 2,
+        //        Lugar = "Indoor Padel",
+        //        Fecha = "20/4/2019",
+        //        HoraI = "18:00-19:30",
+        //        Nivel = "Intermedio",
+        //        NJugadores = 2,
+        //        MaxJugadores = 4,
+        //        Precio = 2.5f,
+        //        Imagen = "palapadel.png",
+        //        Pista = 4
+        //        }
+        //    };
+        //    return partidos;
+        //}
+        //public async Task<List<Partido>> getPartidos()
+        //{
+        //    RestService restService = new RestService();
+        //    string Url = "http://10.0.2.2/api_bsport/select/muestra_partidos.php";
 
-        const int MAXJUGADORES = 4;
-        public List<Partidos> getPartidos()
-        {
-            List<Partidos> partidos = new List<Partidos>()
-            {
-                //Cargar aquí los datos de la base de datos y rellenar el objeto... (???????????)
-                
-            };
-            return partidos;
-        }
+        //    Datos datos = await restService.Post<Datos>(Url);
+        //    List<Partido> partidos = datos.Partidos;
+        //    return partidos;
+        //}
     }
 }

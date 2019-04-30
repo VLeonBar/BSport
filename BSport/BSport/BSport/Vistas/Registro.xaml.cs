@@ -14,14 +14,15 @@ namespace BSport.Vistas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Registro : ContentPage
     {
-        private RestService restService = new RestService();
+        private RestService restService;
         private string passValida;
         private string Url;
         private Datos datos;
         public Registro()
         {
             InitializeComponent();
-            Url = "http://192.168.0.11/api_bsport/insert/registro_usuario.php";
+            //Url = "http://192.168.0.11/api_bsport/insert/registro_usuario.php";
+            Url = "http://10.0.2.2/api_bsport/insert/registro_usuario.php";
         }
         public async void OnRegistroClicked(object sender, EventArgs args)
         {
@@ -58,28 +59,28 @@ namespace BSport.Vistas
                 {
                     case 1:
                         info.TextColor = Color.CadetBlue;
-                        info.Text = datos.Contenido.ToString();
+                        info.Text = datos.Mensaje.ToString();
                         await Navigation.PushAsync(new Login());
                         break;
                     case 101:
                         info.TextColor = Color.IndianRed;
-                        info.Text = datos.Contenido.ToString();
+                        info.Text = datos.Mensaje.ToString();
                         break;
                     case 102:
                         info.TextColor = Color.IndianRed;
-                        info.Text += datos.Contenido.ToString();
+                        info.Text += datos.Mensaje.ToString();
                         break;
                     case 103:
                         info.TextColor = Color.IndianRed;
-                        info.Text = datos.Contenido.ToString();
+                        info.Text = datos.Mensaje.ToString();
                         break;
                     case 104:
                         info.TextColor = Color.IndianRed;
-                        info.Text = datos.Contenido.ToString();
+                        info.Text = datos.Mensaje.ToString();
                         break;
                     case 105:
                         info.TextColor = Color.IndianRed;
-                        info.Text = datos.Contenido.ToString();
+                        info.Text = datos.Mensaje.ToString();
                         break;
 
                 }

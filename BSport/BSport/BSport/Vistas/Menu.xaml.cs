@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
 using BSport.Modelos;
+using BSport.Vistas;
 
 namespace BSport
 {
@@ -36,7 +37,7 @@ namespace BSport
         }
         async void OnBtnPadelClicked(object sender, EventArgs args)
         {
-            await Navigation.PushAsync(new Padel(Usuario));
+            await Navigation.PushAsync(new PartidosPadel(Usuario));
         }
     }
 }

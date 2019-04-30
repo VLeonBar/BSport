@@ -14,25 +14,27 @@
         <StackLayout Orientation="Vertical" Margin="10" Spacing="10" Padding="10">
             <StackLayout Orientation="Horizontal">
                 <Label Text="Lugar" VerticalOptions="Center"/>
-                <Entry Placeholder="Ej. iPadel"/>
+                <Entry x:Name="Lugar" Placeholder="Ej. iPadel"/>
                 <Label Text="Precio" VerticalOptions="Center"/>
-                <Entry Placeholder="Precio por persona" VerticalOptions="Center" />
+                <Entry x:Name="Precio" Placeholder="Precio por persona" VerticalOptions="Center" />
+                <Label Text="Pista" VerticalOptions="Center"/>
+                <Entry x:Name="Pista" Placeholder="Nº" VerticalOptions="Center" />
             </StackLayout>
             
             <StackLayout Orientation="Horizontal">
                 <Label Text="Fecha" VerticalOptions="Center"/>
-                <DatePicker/>
+                <DatePicker x:Name="Fecha"/>
                 <Label Text="Hora de inicio" VerticalOptions="Center"/>
-                <TimePicker/>
+                <TimePicker x:Name="HoraI"/>
                 <Label Text="Hora de fin" VerticalOptions="Center"/>
-                <TimePicker/>
+                <TimePicker x:Name="HoraF"/>
             </StackLayout>
             <!--<StackLayout Orientation="Horizontal">
                
             </StackLayout>-->
             <StackLayout Orientation="Horizontal">
                 <Label Text="Nivel" VerticalOptions="Center"/>
-                <Picker x:Name="picker" Title="Selecciona el nivel del partido" TextColor="Blue" VerticalOptions="Center">
+                <Picker x:Name="NivelPicker" Title="Selecciona el nivel del partido" TextColor="Blue" VerticalOptions="Center">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Básico I</x:String>
@@ -67,8 +69,8 @@
                 <Label x:Name="lblJ3" Text="Jugador 3" VerticalOptions="Center"/>
                 <Entry x:Name="entJ3" Placeholder="Nombre del jugador" VerticalOptions="Center"/>
             </StackLayout>
-            <Button Text="Crear" HeightRequest="60" VerticalOptions="EndAndExpand"/>
-            <Button Text="Cancelar" HeightRequest="60" VerticalOptions="End"/>
+            <Button x:Name="btnCrear" Text="Crear" HeightRequest="60" VerticalOptions="EndAndExpand" Clicked="OnCrearClicked"/>
+            <Button x:Name="btnCancelar" Text="Cancelar" HeightRequest="60" VerticalOptions="End" Clicked="OnCancelarClicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
