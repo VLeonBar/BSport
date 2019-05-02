@@ -96,32 +96,5 @@ namespace BSport.Modelos
             get { return jugadores; }
             set { jugadores = value; }
         }
-        //public List<Partido> GetPartidos()
-        //{
-        //    List<Partido> partidos = new List<Partido>() {
-        //        new Partido(){
-        //            Id_Partido = 2,
-        //        Lugar = "Indoor Padel",
-        //        Fecha = "20/4/2019",
-        //        HoraI = "18:00-19:30",
-        //        Nivel = "Intermedio",
-        //        NJugadores = 2,
-        //        MaxJugadores = 4,
-        //        Precio = 2.5f,
-        //        Imagen = "palapadel.png",
-        //        Pista = 4
-        //        }
-        //    };
-        //    return partidos;
-        //}
-        //public async Task<List<Partido>> getPartidos()
-        //{
-        //    RestService restService = new RestService();
-        //    string Url = "http://10.0.2.2/api_bsport/select/muestra_partidos.php";
-
-        //    Datos datos = await restService.Post<Datos>(Url);
-        //    List<Partido> partidos = datos.Partidos;
-        //    return partidos;
-        //}
     }
 }

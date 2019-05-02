@@ -21,8 +21,8 @@ namespace BSport.Vistas
         public Login()
         {
             InitializeComponent();
-            //Url = "http://192.168.0.11/api_bsport/select/login_usuario.php";
-            Url = "http://10.0.2.2/api_bsport/select/login_usuario.php";
+            Url = "http://192.168.0.10/api_bsport/select/login_usuario.php";
+            //Url = "http://10.0.2.2/api_bsport/select/login_usuario.php";
         }
         public async void OnEntrarClicked(object sender, EventArgs args)
         {

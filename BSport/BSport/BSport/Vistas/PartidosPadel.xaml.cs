@@ -49,7 +49,7 @@ namespace BSport.Vistas
         {
             base.OnAppearing();
             RestService restService = new RestService();
-            string Url = "http://10.0.2.2/api_bsport/select/muestra_partidos.php";
+            string Url = "http://192.168.0.10/api_bsport/select/muestra_partidos.php";
 
             Datos datos = await restService.Post<Datos>(Url);
             List<Partido> partidos = datos.Partidos;
