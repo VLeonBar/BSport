@@ -23,11 +23,11 @@
             
             <StackLayout Orientation="Horizontal">
                 <Label Text="Fecha" VerticalOptions="Center"/>
-                <DatePicker x:Name="Fecha"/>
+                <DatePicker x:Name="Fecha" Format="dd-MM-yyyy"/>
                 <Label Text="Hora de inicio" VerticalOptions="Center"/>
-                <TimePicker x:Name="HoraI"/>
+                <TimePicker x:Name="HoraI" Format="HH:mm"/>
                 <Label Text="Hora de fin" VerticalOptions="Center"/>
-                <TimePicker x:Name="HoraF"/>
+                <TimePicker x:Name="HoraF" Format="HH:mm"/>
             </StackLayout>
             <!--<StackLayout Orientation="Horizontal">
                
