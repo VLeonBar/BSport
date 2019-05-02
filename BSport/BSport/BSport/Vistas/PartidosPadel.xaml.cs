@@ -16,15 +16,12 @@ namespace BSport.Vistas
     public partial class PartidosPadel : ContentPage
     {
         Partido p;
-        PartidosParaPadel pp;
         public Usuario Usuario { get; set; }
         public PartidosPadel(Usuario usuario)
         {
             InitializeComponent();
             // TODO
             // Este constructor inicializa su array interno, es ahí dónde debo pretender hacer la petición de datos al servidor y rellenar el array mediante la base de datos. (??????)
-            pp = new PartidosParaPadel();
-            BindingContext = pp;
             Usuario = usuario;
             perfil.Text = "Perfil : " + Usuario.Nombre + Usuario.Id_usuario;
 
@@ -52,14 +49,46 @@ namespace BSport.Vistas
             string Url = "http://192.168.0.10/api_bsport/select/muestra_partidos.php";
 
             Datos datos = await restService.Post<Datos>(Url);
-            List<Partido> partidos = datos.Partidos;
-            foreach (Partido partido in partidos)
+            if (datos != null)
             {
-                partido.Imagen = "palapadel.png";
-                partido.NJugadores = 2;
-                partido.MaxJugadores = 4;
+                switch (datos.Codigo)
+                {
+                    case 1:
+                        List<Partido> partidos = datos.Partidos;
+                        foreach (Partido partido in partidos)
+                        {
+                            partido.Imagen = "palapadel.png";
+                            partido.MaxJugadores = 4;
+                        }
+                        listaPartidos.ItemsSource = datos.Partidos;
+                        break;
+                    case 101:
+                        Console.WriteLine("101");
+                        //info.TextColor = Color.IndianRed;
+                        //info.Text = datos.Mensaje.ToString();
+                        break;
+                    case 102:
+                        Console.WriteLine("102");
+                        //info.TextColor = Color.IndianRed;
+                        //info.Text += datos.Mensaje.ToString();
+                        break;
+                    case 103:
+                        Console.WriteLine("103");
+                        //info.TextColor = Color.IndianRed;
+                        //info.Text = datos.Mensaje.ToString();
+                        break;
+                    case 104:
+                        Console.WriteLine("104");
+                        //info.TextColor = Color.IndianRed;
+                        //info.Text = datos.Mensaje.ToString();
+                        break;
+                    case 105:
+                        Console.WriteLine("105");
+                        //info.TextColor = Color.IndianRed;
+                        //info.Text = datos.Mensaje.ToString();
+                        break;
+                }
             }
-            listaPartidos.ItemsSource = datos.Partidos;
         }
     }
 }
