@@ -73,10 +73,11 @@ namespace BSport.Vistas
         private async void OnCrearClicked(object sender, EventArgs e)
         {
             string fecha = String.Format("{0:yyyy/MM/dd}", Fecha.Date);
+            RestService restService = new RestService();
             try
             {
                 List<KeyValuePair<string, string>> datosPost = null;
-                Url = "http://10.0.2.2/api_bsport/insert/crea_partido.php";
+                Url = "http://47.62.204.243:54321/api_bsport/insert/crea_partido.php";
 
                 //Comprueba que los campos enviados no sean null ni estén vacíos
                 if (validacadenas(new List<string>() { Lugar.Text, fecha, HoraI.Time.ToString(), HoraF.Time.ToString(), NivelPicker.SelectedItem.ToString(), Pista.Text, Precio.Text }))
@@ -97,7 +98,6 @@ namespace BSport.Vistas
                 {
                     throw new FormatException();
                 }
-                RestService restService = new RestService();
                 if (datosPost != null)
                 {
                     Datos datos = await restService.Post<Datos>(Url, datosPost);
@@ -106,7 +106,7 @@ namespace BSport.Vistas
                         switch (datos.Codigo)
                         {
                             case 1:
-                                await Navigation.PushAsync(new PartidosPadel(Usuario));
+                                await Navigation.PopAsync();
                                 break;
                             case 101:
                                 Console.WriteLine("101");
@@ -136,10 +136,6 @@ namespace BSport.Vistas
                         }
                     }
                 }
-            }
-            catch (Newtonsoft.Json.JsonReaderException ex)
-            {
-                Console.WriteLine(ex.Message + ex.StackTrace);
             }
             catch (FormatException ex)
             {

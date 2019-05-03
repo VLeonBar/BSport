@@ -16,23 +16,23 @@ namespace BSport.Vistas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Login : ContentPage
     {
-        private RestService restService = new RestService();
         private string Url;
         public Login()
         {
             InitializeComponent();
-            Url = "http://192.168.0.10/api_bsport/select/login_usuario.php";
-            //Url = "http://10.0.2.2/api_bsport/select/login_usuario.php";
+            Url = "http://47.62.204.243:54321/api_bsport/select/login_usuario.php";
         }
+        
         public async void OnEntrarClicked(object sender, EventArgs args)
         {
+            RestService restService = new RestService();
             info.Text = "";
             var datosPost = new List<KeyValuePair<string, string>>
                 {
-                    //new KeyValuePair<string, string>("Login", login.Text),
-                    //new KeyValuePair<string, string>("Pass", pass.Text)
-                    new KeyValuePair<string, string>("Login", "admin"),
-                    new KeyValuePair<string, string>("Pass", "localhost")
+                    new KeyValuePair<string, string>("Login", login.Text),
+                    new KeyValuePair<string, string>("Pass", pass.Text)
+                    //new KeyValuePair<string, string>("Login", "admin"),
+                    //new KeyValuePair<string, string>("Pass", "localhost")
                 };
 
             Datos datos = await restService.Post<Datos>(Url, datosPost);

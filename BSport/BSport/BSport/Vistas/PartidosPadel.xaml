@@ -102,7 +102,7 @@
                 </Grid.RowDefinitions>
                 <Button x:Name="btnVer" Text="Ver partido" Grid.Row="0" Grid.Column="1"  Grid.RowSpan="3" Clicked="OnVerClicked"/>
                 <!--NO ENTIENDO HOW TO USE LA INTERFAZ ME VOY A PEGAR UN TIRO-->
-                <Button Text="Añadir" HorizontalOptions="Center" Grid.Row="0" Grid.RowSpan="3" />
+                <Button Text="Apuntarme" HorizontalOptions="Center" Grid.Row="0" Grid.RowSpan="3" Clicked="OnApuntarClicked"/>
                 <!--<Picker Title="Cambiar nivel" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="2" Grid.Column="1" />-->
                 <Button Text="Crear Partido" Grid.Row="0" Grid.Column="2" Grid.RowSpan="3" Clicked="OnCrearPartidoClicked"/>
             </Grid>

@@ -14,18 +14,17 @@ namespace BSport.Vistas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Registro : ContentPage
     {
-        private RestService restService;
         private string passValida;
         private string Url;
         private Datos datos;
         public Registro()
         {
             InitializeComponent();
-            Url = "http://192.168.0.10/api_bsport/insert/registro_usuario.php";
-            //Url = "http://10.0.2.2/api_bsport/insert/registro_usuario.php";
+            Url = "http://47.62.204.243:54321/api_bsport//insert/registro_usuario.php";
         }
         public async void OnRegistroClicked(object sender, EventArgs args)
         {
+            RestService restService = new RestService();
             info.Text = "";
             try
             {
@@ -52,6 +51,10 @@ namespace BSport.Vistas
             {
                 info.TextColor = Color.IndianRed;
                 info.Text = "Las contraseñas deben coincidir.";
+            }
+            catch (NullReferenceException e)
+            {
+                Console.WriteLine("EXXXXXXXXXXXXXXXXXXXXXXXXXXXXCEPTIONNNNNNN " + e.Message + e.StackTrace);
             }
             if (datos != null)
             {

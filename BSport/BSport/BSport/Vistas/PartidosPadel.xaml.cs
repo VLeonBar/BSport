@@ -1,5 +1,4 @@
 ﻿using BSport.Funciones;
-using BSport.ModeloParaVista;
 using BSport.Modelos;
 using System;
 using System.Collections.Generic;
@@ -35,6 +34,47 @@ namespace BSport.Vistas
             if (p != null)
             {
                 //await Navigation.PushAsync(new PadelPartido(p));
+                RestService restService = new RestService();
+                string Url = "http://47.62.204.243:54321/api_bsport/select/jugadores_partido.php";
+
+                Datos datos = await restService.Post<Datos>(Url, new List<KeyValuePair<string, string>>() { new KeyValuePair<string, string>("Id_partido", p.Id_Partido.ToString()) });
+                if (datos != null)
+                {
+                    switch (datos.Codigo)
+                    {
+                        case 1:
+                            foreach (Usuario usuario in datos.Usuarios)
+                            {
+                                Console.WriteLine(usuario.Nombre);
+                            }
+                            break;
+                        case 101:
+                            Console.WriteLine("101");
+                            //info.TextColor = Color.IndianRed;
+                            //info.Text = datos.Mensaje.ToString();
+                            break;
+                        case 102:
+                            Console.WriteLine("102");
+                            //info.TextColor = Color.IndianRed;
+                            //info.Text += datos.Mensaje.ToString();
+                            break;
+                        case 103:
+                            Console.WriteLine("103");
+                            //info.TextColor = Color.IndianRed;
+                            //info.Text = datos.Mensaje.ToString();
+                            break;
+                        case 104:
+                            Console.WriteLine("104");
+                            //info.TextColor = Color.IndianRed;
+                            //info.Text = datos.Mensaje.ToString();
+                            break;
+                        case 105:
+                            Console.WriteLine("105");
+                            //info.TextColor = Color.IndianRed;
+                            //info.Text = datos.Mensaje.ToString();
+                            break;
+                    }
+                }
             }
 
         }
@@ -42,11 +82,58 @@ namespace BSport.Vistas
         {
             await Navigation.PushAsync(new CrearPartido(Usuario));
         }
+        async public void OnApuntarClicked(object sender, EventArgs e)
+        {
+            if (p != null)
+            {
+                RestService restService = new RestService();
+                string Url = "http://47.62.204.243:54321/api_bsport/insert/agrega_jugador_partido.php";
+
+                Datos datos = await restService.Post<Datos>(Url, new List<KeyValuePair<string, string>>() {
+                new KeyValuePair<string, string>("Id_partido", p.Id_Partido.ToString()),
+                new KeyValuePair<string, string>("Id_usuario", Usuario.Id_usuario.ToString()) });
+                if (datos != null)
+                {
+                    switch (datos.Codigo)
+                    {
+                        case 1:
+                            Console.WriteLine("Correcto");
+                            break;
+                        case 101:
+                            Console.WriteLine("101");
+                            //info.TextColor = Color.IndianRed;
+                            //info.Text = datos.Mensaje.ToString();
+                            break;
+                        case 102:
+                            Console.WriteLine("102");
+                            //info.TextColor = Color.IndianRed;
+                            //info.Text += datos.Mensaje.ToString();
+                            break;
+                        case 103:
+                            Console.WriteLine("103");
+                            //info.TextColor = Color.IndianRed;
+                            //info.Text = datos.Mensaje.ToString();
+                            break;
+                        case 104:
+                            Console.WriteLine("104");
+                            //info.TextColor = Color.IndianRed;
+                            //info.Text = datos.Mensaje.ToString();
+                            break;
+                        case 105:
+                            Console.WriteLine("105");
+                            //info.TextColor = Color.IndianRed;
+                            //info.Text = datos.Mensaje.ToString();
+                            break;
+                    }
+                }
+            }
+            this.OnAppearing();
+        }
         protected async override void OnAppearing()
         {
             base.OnAppearing();
             RestService restService = new RestService();
-            string Url = "http://192.168.0.10/api_bsport/select/muestra_partidos.php";
+            string Url = "http://47.62.204.243:54321/api_bsport/select/muestra_partidos.php";
 
             Datos datos = await restService.Post<Datos>(Url);
             if (datos != null)
@@ -54,8 +141,7 @@ namespace BSport.Vistas
                 switch (datos.Codigo)
                 {
                     case 1:
-                        List<Partido> partidos = datos.Partidos;
-                        foreach (Partido partido in partidos)
+                        foreach (Partido partido in datos.Partidos)
                         {
                             partido.Imagen = "palapadel.png";
                             partido.MaxJugadores = 4;
