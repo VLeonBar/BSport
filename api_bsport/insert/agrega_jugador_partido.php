@@ -13,12 +13,21 @@ try {
     } else {
         throw new InvalidArgumentException();
     }
-    //Inserto al jugador al partido en la tabla relacional entre jugadores y partidos como NO administrador
-    $stmt = $pdo->prepare("INSERT INTO partidos_usuarios(Id_partido,Id_usuario,Admin) VALUES(:IdPartido,:IdUsuario,0)");
+    // Compruebo que el usuario no esté inscrito al partido antes de añadirlo.
+    $stmt = $pdo->prepare("SELECT COUNT(Id_partido) FROM partidos_usuarios WHERE (Id_partido=:IdPartido && Id_usuario=:IdUsuario) GROUP BY Id_usuario");
     $stmt->execute(array("IdPartido" => $IdPartido, "IdUsuario" => $IdUsuario));
-    //Envío código de validacion
+    $res = $stmt->fetch();
+    if ($res[0]) {
+        echo json_encode(array("Codigo" => 111, "Mensaje" => "Ya está inscrito a este partido."));
+    } else {
 
-    echo json_encode(array("Codigo" => 1, "Mensaje" => "Partido creado correctamente."));
+        //Inserto al jugador al partido en la tabla relacional entre jugadores y partidos como NO administrador
+        $stmt = $pdo->prepare("INSERT INTO partidos_usuarios(Id_partido,Id_usuario,Admin) VALUES(:IdPartido,:IdUsuario,0)");
+        $stmt->execute(array("IdPartido" => $IdPartido, "IdUsuario" => $IdUsuario));
+
+        //Envío código de validacion
+        echo json_encode(array("Codigo" => 1, "Mensaje" => "Jugador inscrito a partido."));
+    }
 } catch (PDOException $e) {
     echo json_encode(array("Codigo" => 107, "Mensaje" => "Error en la BASEDEDAT de datos." . $e));
 } catch (InvalidArgumentException $e) {

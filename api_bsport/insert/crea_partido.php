@@ -24,7 +24,6 @@ try {
     $stmt = $pdo->prepare("INSERT INTO partidos(Lugar,Fecha,HoraI,HoraF,Precio,Nivel,Pista) VALUES(:Lugar,:Fecha,:HoraI,:HoraF,:Precio,:Nivel,:Pista)");
     $stmt->execute(array("Lugar" => $Lugar, "Fecha" => $Fecha, "HoraI" => $HoraI, "HoraF" => $HoraF, "Precio" => $Precio, "Nivel" => $Nivel, "Pista" => $Pista));
     $IdPartido = $pdo->lastInsertId();
-    echo $IdPartido;
     //Inserto el jugador al partido en la tabla relacional entre jugadores y partidos, como administrador siempre, ya que es el creador del partido.
     $stmt = $pdo->prepare("INSERT INTO partidos_usuarios(Id_partido,Id_usuario,Admin) VALUES(:IdPartido,:IdUsuario,1)");
     $stmt->execute(array("IdPartido" => $IdPartido, "IdUsuario" => $IdUsuario));
