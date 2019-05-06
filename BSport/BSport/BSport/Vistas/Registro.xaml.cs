@@ -52,10 +52,6 @@ namespace BSport.Vistas
                 info.TextColor = Color.IndianRed;
                 info.Text = "Las contraseñas deben coincidir.";
             }
-            catch (NullReferenceException e)
-            {
-                Console.WriteLine("EXXXXXXXXXXXXXXXXXXXXXXXXXXXXCEPTIONNNNNNN " + e.Message + e.StackTrace);
-            }
             if (datos != null)
             {
                 switch (datos.Codigo)
@@ -63,7 +59,7 @@ namespace BSport.Vistas
                     case 1:
                         info.TextColor = Color.CadetBlue;
                         info.Text = datos.Mensaje.ToString();
-                        await Navigation.PushAsync(new Login());
+                        await Navigation.PopAsync();
                         break;
                     case 101:
                         info.TextColor = Color.IndianRed;
