@@ -22,11 +22,10 @@ namespace BSport.Vistas
             InitializeComponent();
             Url = "http://47.62.204.243:54321/api_bsport/select/login_usuario.php";
         }
-        
+
         public async void OnEntrarClicked(object sender, EventArgs args)
         {
             RestService restService = new RestService();
-            info.Text = "";
             var datosPost = new List<KeyValuePair<string, string>>
                 {
                     new KeyValuePair<string, string>("Login", login.Text),
@@ -62,6 +61,13 @@ namespace BSport.Vistas
         public async void OnRegistroClicked(object sender, EventArgs args)
         {
             await Navigation.PushAsync(new Registro());
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            info.Text = "";
+            login.Text = "";
+            pass.Text = "";
         }
     }
 }

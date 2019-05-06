@@ -21,6 +21,7 @@ namespace BSport.Vistas
             InitializeComponent();
             stackStepper.BindingContext = stepperJugadores;
             Usuario = usuario;
+            Console.WriteLine(Usuario.Nombre + Usuario.Id_usuario);
             Fecha.Date = DateTime.Today;
             HoraI.Time = new TimeSpan(0, 0, 0);
             HoraF.Time = new TimeSpan(0, 0, 0);
@@ -57,18 +58,7 @@ namespace BSport.Vistas
         }
         private async void OnCancelarClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new PartidosPadel(Usuario));
-        }
-        private bool validacadenas(List<string> campos)
-        {
-            foreach (string campo in campos)
-            {
-                if (campo.Trim() == "" || campo == null)
-                {
-                    return false;
-                }
-            }
-            return true;
+            await Navigation.PopAsync();
         }
         private async void OnCrearClicked(object sender, EventArgs e)
         {
@@ -78,9 +68,9 @@ namespace BSport.Vistas
             {
                 List<KeyValuePair<string, string>> datosPost = null;
                 Url = "http://47.62.204.243:54321/api_bsport/insert/crea_partido.php";
-
                 //Comprueba que los campos enviados no sean null ni estén vacíos
-                if (validacadenas(new List<string>() { Lugar.Text, fecha, HoraI.Time.ToString(), HoraF.Time.ToString(), NivelPicker.SelectedItem.ToString(), Pista.Text, Precio.Text }))
+                if (!(String.IsNullOrEmpty(Lugar.Text) || String.IsNullOrEmpty(fecha) || String.IsNullOrEmpty(HoraI.Time.ToString()) || String.IsNullOrEmpty(Precio.Text) ||
+                    String.IsNullOrEmpty(HoraF.Time.ToString()) || String.IsNullOrEmpty(NivelPicker.SelectedItem.ToString()) || String.IsNullOrEmpty(Pista.Text)))
                 {
                     datosPost = new List<KeyValuePair<string, string>>
                     {
@@ -106,7 +96,7 @@ namespace BSport.Vistas
                         switch (datos.Codigo)
                         {
                             case 1:
-                                await Navigation.PopAsync();
+                                await Navigation.PushAsync(new PartidosPadel(Usuario));
                                 break;
                             case 101:
                                 Console.WriteLine("101");

@@ -11,70 +11,49 @@
 
     <ContentPage.Content>
         <!--Lugar y precio del partido-->
-        <StackLayout Orientation="Vertical" Margin="10" Spacing="10" Padding="10">
+        <StackLayout x:Name="stackInfo" Orientation="Vertical" Margin="10" Spacing="10" Padding="10">
             <StackLayout Orientation="Horizontal">
                 <Label Text="Lugar" VerticalOptions="Center"/>
-                <Entry x:Name="Lugar" Text="{Binding Lugar}" IsEnabled="False"/>
+                <Label x:Name="Lugar" VerticalOptions="Center"/>
                 <Label Text="Precio" VerticalOptions="Center"/>
-                <Entry x:Name="Precio" Text="{Binding Precio}" VerticalOptions="Center" IsEnabled="False"/>
+                <Label x:Name="Precio" VerticalOptions="Center"/>
                 <Label Text="Pista" VerticalOptions="Center"/>
-                <Entry x:Name="Pista" VerticalOptions="Center" Text="{Binding Pista}" IsEnabled="False"/>
+                <Label x:Name="Pista" VerticalOptions="Center"/>
             </StackLayout>
 
             <StackLayout Orientation="Horizontal">
                 <Label Text="Fecha" VerticalOptions="Center"/>
-                <DatePicker x:Name="Fecha" IsEnabled="False"/>
+                <Label x:Name="Fecha" VerticalOptions="Center"/>
                 <Label Text="Hora de inicio" VerticalOptions="Center"/>
-                <TimePicker x:Name="HoraI" IsEnabled="False"/>
+                <Label x:Name="HoraI" VerticalOptions="Center"/>
                 <Label Text="Hora de fin" VerticalOptions="Center"/>
-                <TimePicker x:Name="HoraF" IsEnabled="False"/>
+                <Label x:Name="HoraF" VerticalOptions="Center"/>
             </StackLayout>
-            <!--<StackLayout Orientation="Horizontal">
-               
-            </StackLayout>-->
             <StackLayout Orientation="Horizontal">
                 <Label Text="Nivel" VerticalOptions="Center"/>
-                <Picker x:Name="NivelPicker" Title="Selecciona el nivel del partido" TextColor="Blue" VerticalOptions="Center">
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>Básico I</x:String>
-                            <x:String>Básico II</x:String>
-                            <x:String>Intermedio I</x:String>
-                            <x:String>Intermedio II</x:String>
-                            <x:String>Intermedio III</x:String>
-                            <x:String>Avanzado I</x:String>
-                            <x:String>Avanzado II</x:String>
-                        </x:Array>
-                    </Picker.ItemsSource>
-                </Picker>
+                <Label x:Name="Nivel" VerticalOptions="Center"/>
             </StackLayout>
-            <!--<StackLayout Orientation="Horizontal" VerticalOptions="Center">
-                
-            </StackLayout>-->
-            <StackLayout x:Name="stackStepper" Orientation="Horizontal" VerticalOptions="Center" Spacing="0">
-                <Label Text="Plazas disponibles : " VerticalOptions="Center"/>
-                <Label Text="{Binding Value}" VerticalOptions="Center"/>
-                <Stepper x:Name="stepperJugadores" Minimum="1" Maximum="3" Increment="1" ValueChanged="StepperJugadores_ValueChanged" VerticalOptions="Center" Value="3"/>
-            </StackLayout>
-            <Label Text="Inscribirse" FontAttributes="Bold"/>
+
+            <Label Text="Jugadores inscritos:" FontAttributes="Bold" Margin="5"/>
             <StackLayout x:Name="stackJ1" Orientation="Horizontal" IsVisible="True" VerticalOptions="Center">
-                <Label x:Name="lblJ1" Text="Jugador 1" VerticalOptions="Center"/>
-                <Entry x:Name="entJ1" Text="{Binding J1}" VerticalOptions="Center"/>
+                <Label x:Name="lblJ1" Text="Jugador 1: " VerticalOptions="Center"/>
+                <Label x:Name="J1" VerticalOptions="Center"/>
             </StackLayout>
             <StackLayout x:Name="stackJ2" Orientation="Horizontal" IsVisible="False">
-                <Label x:Name="lblJ2" Text="Jugador 2" VerticalOptions="Center"/>
-                <Entry x:Name="entJ2" VerticalOptions="Center"/>
+                <Label x:Name="lblJ2" Text="Jugador 2: " VerticalOptions="Center"/>
+                <Label x:Name="J2" VerticalOptions="Center"/>
             </StackLayout>
             <StackLayout x:Name="stackJ3" Orientation="Horizontal" IsVisible="False">
-                <Label x:Name="lblJ3" Text="Jugador 3" VerticalOptions="Center"/>
-                <Entry x:Name="entJ3" Placeholder="Nombre del jugador" VerticalOptions="Center"/>
+                <Label x:Name="lblJ3" Text="Jugador 3: " VerticalOptions="Center"/>
+                <Label x:Name="J3" VerticalOptions="Center"/>
             </StackLayout>
             <StackLayout x:Name="stackJ4" Orientation="Horizontal" IsVisible="False">
-                <Label x:Name="lblJ4" Text="Jugador 4" VerticalOptions="Center"/>
-                <Entry x:Name="entJ4" Placeholder="Nombre del jugador" VerticalOptions="Center"/>
+                <Label x:Name="lblJ4" Text="Jugador 4: " VerticalOptions="Center"/>
+                <Label x:Name="J4" VerticalOptions="Center"/>
             </StackLayout>
+            <Label x:Name="info" VerticalOptions="End"/>
             <Button x:Name="btnAnadir" Text="Añadir" HeightRequest="60" VerticalOptions="EndAndExpand" Clicked="OnAnadirClicked"/>
-            <Button x:Name="btnCancelar" Text="Cancelar" HeightRequest="60" VerticalOptions="End" Clicked="OnCancelarClicked"/>
+            <Button x:Name="btnAtras" Text="Cancelar" HeightRequest="60" VerticalOptions="End" Clicked="OnAtrasClicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

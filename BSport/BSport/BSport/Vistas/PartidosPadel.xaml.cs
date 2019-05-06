@@ -33,48 +33,8 @@ namespace BSport.Vistas
         {
             if (p != null)
             {
-                //await Navigation.PushAsync(new PadelPartido(p));
-                RestService restService = new RestService();
-                string Url = "http://47.62.204.243:54321/api_bsport/select/jugadores_partido.php";
+                await Navigation.PushAsync(new VerPartido(Usuario,p));
 
-                Datos datos = await restService.Post<Datos>(Url, new List<KeyValuePair<string, string>>() { new KeyValuePair<string, string>("Id_partido", p.Id_Partido.ToString()) });
-                if (datos != null)
-                {
-                    switch (datos.Codigo)
-                    {
-                        case 1:
-                            foreach (Usuario usuario in datos.Usuarios)
-                            {
-                                Console.WriteLine(usuario.Nombre);
-                            }
-                            break;
-                        case 101:
-                            Console.WriteLine("101");
-                            //info.TextColor = Color.IndianRed;
-                            //info.Text = datos.Mensaje.ToString();
-                            break;
-                        case 102:
-                            Console.WriteLine("102");
-                            //info.TextColor = Color.IndianRed;
-                            //info.Text += datos.Mensaje.ToString();
-                            break;
-                        case 103:
-                            Console.WriteLine("103");
-                            //info.TextColor = Color.IndianRed;
-                            //info.Text = datos.Mensaje.ToString();
-                            break;
-                        case 104:
-                            Console.WriteLine("104");
-                            //info.TextColor = Color.IndianRed;
-                            //info.Text = datos.Mensaje.ToString();
-                            break;
-                        case 105:
-                            Console.WriteLine("105");
-                            //info.TextColor = Color.IndianRed;
-                            //info.Text = datos.Mensaje.ToString();
-                            break;
-                    }
-                }
             }
 
         }
@@ -97,32 +57,32 @@ namespace BSport.Vistas
                     switch (datos.Codigo)
                     {
                         case 1:
-                            Console.WriteLine("Correcto");
+                            info.TextColor = Color.Blue;
+                            info.Text = datos.Mensaje.ToString();
                             break;
                         case 101:
-                            Console.WriteLine("101");
-                            //info.TextColor = Color.IndianRed;
-                            //info.Text = datos.Mensaje.ToString();
+                            info.TextColor = Color.IndianRed;
+                            info.Text = datos.Mensaje.ToString();
                             break;
                         case 102:
-                            Console.WriteLine("102");
-                            //info.TextColor = Color.IndianRed;
-                            //info.Text += datos.Mensaje.ToString();
+                            info.TextColor = Color.IndianRed;
+                            info.Text += datos.Mensaje.ToString();
                             break;
                         case 103:
-                            Console.WriteLine("103");
-                            //info.TextColor = Color.IndianRed;
-                            //info.Text = datos.Mensaje.ToString();
+                            info.TextColor = Color.IndianRed;
+                            info.Text = datos.Mensaje.ToString();
                             break;
                         case 104:
-                            Console.WriteLine("104");
-                            //info.TextColor = Color.IndianRed;
-                            //info.Text = datos.Mensaje.ToString();
+                            info.TextColor = Color.IndianRed;
+                            info.Text = datos.Mensaje.ToString();
                             break;
                         case 105:
-                            Console.WriteLine("105");
-                            //info.TextColor = Color.IndianRed;
-                            //info.Text = datos.Mensaje.ToString();
+                            info.TextColor = Color.IndianRed;
+                            info.Text = datos.Mensaje.ToString();
+                            break;
+                        case 111:
+                            info.TextColor = Color.IndianRed;
+                            info.Text = datos.Mensaje.ToString();
                             break;
                     }
                 }
@@ -149,29 +109,24 @@ namespace BSport.Vistas
                         listaPartidos.ItemsSource = datos.Partidos;
                         break;
                     case 101:
-                        Console.WriteLine("101");
-                        //info.TextColor = Color.IndianRed;
-                        //info.Text = datos.Mensaje.ToString();
+                        info.TextColor = Color.IndianRed;
+                        info.Text = datos.Mensaje.ToString();
                         break;
                     case 102:
-                        Console.WriteLine("102");
-                        //info.TextColor = Color.IndianRed;
-                        //info.Text += datos.Mensaje.ToString();
+                        info.TextColor = Color.IndianRed;
+                        info.Text += datos.Mensaje.ToString();
                         break;
                     case 103:
-                        Console.WriteLine("103");
-                        //info.TextColor = Color.IndianRed;
-                        //info.Text = datos.Mensaje.ToString();
+                        info.TextColor = Color.IndianRed;
+                        info.Text = datos.Mensaje.ToString();
                         break;
                     case 104:
-                        Console.WriteLine("104");
-                        //info.TextColor = Color.IndianRed;
-                        //info.Text = datos.Mensaje.ToString();
+                        info.TextColor = Color.IndianRed;
+                        info.Text = datos.Mensaje.ToString();
                         break;
                     case 105:
-                        Console.WriteLine("105");
-                        //info.TextColor = Color.IndianRed;
-                        //info.Text = datos.Mensaje.ToString();
+                        info.TextColor = Color.IndianRed;
+                        info.Text = datos.Mensaje.ToString();
                         break;
                 }
             }

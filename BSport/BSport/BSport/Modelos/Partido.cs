@@ -8,7 +8,6 @@ namespace BSport.Modelos
 {
     public class Partido
     {
-
         private int id_partido;
 
         public int Id_Partido

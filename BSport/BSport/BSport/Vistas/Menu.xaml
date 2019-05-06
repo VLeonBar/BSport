@@ -4,7 +4,7 @@
              x:Class="BSport.Menu">
     <NavigationPage.TitleView>
         <Label Text="¿A qué desea jugar?" 
-            HorizontalOptions="Start"
+            HorizontalOptions="Center"
             FontSize="30"
             TextColor="White"/>
     </NavigationPage.TitleView>
@@ -19,7 +19,7 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <ImageButton x:Name="padel" Source="palapadel.png" Clicked="OnBtnPadelClicked" BackgroundColor="White"/>
+                <Button x:Name="padel" Text="Pádel" Clicked="OnBtnMenuClicked" BackgroundColor="White"/>
                 <Button x:Name="futbol" Text="Fútbol" Grid.Column="1" Clicked="OnBtnMenuClicked"/>
                 <Button Text="Tenis" Grid.Row="1" Clicked="OnBtnMenuClicked"/>
                 <Button Text="Bolos" Grid.Column="1" Grid.Row="1" Clicked="OnBtnMenuClicked"/>

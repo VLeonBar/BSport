@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BSport.Funciones;
+using BSport.Modelos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,129 +14,141 @@ namespace BSport.Vistas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class VerPartido : ContentPage
     {
-        public VerPartido()
+        public Usuario Usuario { get; set; }
+        public Partido Partido { get; set; }
+        public VerPartido(Usuario usuario, Partido partido)
         {
             InitializeComponent();
+            Usuario = usuario;
+            Partido = partido;
         }
-        private void StepperJugadores_ValueChanged(object sender, ValueChangedEventArgs e)
+        protected async override void OnAppearing()
         {
-            /*En el caso de dejar a empresas crear partidos vacíos para que la gente se una, se dejaría crear un partido vacío, 
-            por el momento sólo se podrán crear partidos con 1 jugador mínimo.*/
+            base.OnAppearing();
+            Lugar.Text = Partido.Lugar;
+            Precio.Text = Partido.Precio.ToString() + "€";
+            Pista.Text = "Nº" + Partido.Pista.ToString();
+            Fecha.Text = Partido.Fecha;
+            HoraI.Text = Partido.HoraI;
+            HoraF.Text = Partido.HoraF;
+            Nivel.Text = Partido.Nivel;
 
-            switch (e.NewValue)
+            RestService restService = new RestService();
+            string Url = "http://47.62.204.243:54321/api_bsport/select/jugadores_partido.php";
+
+            Datos datos = await restService.Post<Datos>(Url, new List<KeyValuePair<string, string>>() { new KeyValuePair<string, string>("Id_partido", Partido.Id_Partido.ToString()) });
+            if (datos != null)
             {
-                case 1:
-                    stackJ2.IsVisible = true;
-                    stackJ3.IsVisible = true;
-                    break;
-
-                case 2:
-                    stackJ2.IsVisible = true;
-                    stackJ3.IsVisible = false;
-                    break;
-
-                case 3:
-                    stackJ2.IsVisible = false;
-                    stackJ3.IsVisible = false;
-                    break;
-
-                    //case 4:
-                    //    stackJ1.IsVisible = false;
-                    //    stackJ2.IsVisible = false;
-                    //    stackJ3.IsVisible = false;
-                    //    break;
-            }
-        }
-        private async void OnCancelarClicked(object sender, EventArgs e)
-        {
-            //await Navigation.PushAsync(new PartidosPadel(Usuario));
-        }
-        private bool validacadenas(List<string> campos)
-        {
-            foreach (string campo in campos)
-            {
-                if (campo.Trim() == "" || campo == null)
+                switch (datos.Codigo)
                 {
-                    return false;
+                    case 1:
+
+                        switch (Partido.NJugadores)
+                        {
+                            case 1:
+                                J1.Text = datos.Usuarios[0].Nombre;
+                                break;
+
+                            case 2:
+                                stackJ2.IsVisible = true;
+                                J2.Text = datos.Usuarios[1].Nombre;
+                                goto case 1;
+
+                            case 3:
+                                stackJ3.IsVisible = true;
+                                J3.Text = datos.Usuarios[2].Nombre;
+                                goto case 2;
+
+                            case 4:
+                                stackJ4.IsVisible = true;
+                                J4.Text = datos.Usuarios[3].Nombre;
+                                goto case 3;
+                        }
+                        break;
+                    case 101:
+                        Console.WriteLine("101");
+                        info.TextColor = Color.IndianRed;
+                        info.Text = datos.Mensaje.ToString();
+                        break;
+                    case 102:
+                        Console.WriteLine("102");
+                        info.TextColor = Color.IndianRed;
+                        info.Text += datos.Mensaje.ToString();
+                        break;
+                    case 103:
+                        Console.WriteLine("103");
+                        info.TextColor = Color.IndianRed;
+                        info.Text = datos.Mensaje.ToString();
+                        break;
+                    case 104:
+                        Console.WriteLine("104");
+                        info.TextColor = Color.IndianRed;
+                        info.Text = datos.Mensaje.ToString();
+                        break;
+                    case 105:
+                        Console.WriteLine("105");
+                        info.TextColor = Color.IndianRed;
+                        info.Text = datos.Mensaje.ToString();
+                        break;
                 }
             }
-            return true;
         }
+
+        //Se pulsa el botón para añadirse al partido
         private async void OnAnadirClicked(object sender, EventArgs e)
         {
-            //string fecha = String.Format("{0:yyyy/MM/dd}", Fecha.Date);
-            //try
-            //{
-            //    List<KeyValuePair<string, string>> datosPost = null;
-            //    Url = "http://47.62.204.243:54321/api_bsport/insert/crea_partido.php";
+            RestService restService = new RestService();
+            string Url = "http://47.62.204.243:54321/api_bsport/insert/agrega_jugador_partido.php";
 
-            //    //Comprueba que los campos enviados no sean null ni estén vacíos
-            //    if (validacadenas(new List<string>() { Lugar.Text, fecha, HoraI.Time.ToString(), HoraF.Time.ToString(), NivelPicker.SelectedItem.ToString(), Pista.Text, Precio.Text }))
-            //    {
-            //        datosPost = new List<KeyValuePair<string, string>>
-            //        {
-            //            new KeyValuePair<string, string>("Id_usuario", Usuario.Id_usuario),
-            //            new KeyValuePair<string, string>("Lugar", Lugar.Text),
-            //            new KeyValuePair<string, string>("Fecha", fecha),
-            //            new KeyValuePair<string, string>("HoraI", HoraI.Time.ToString()),
-            //            new KeyValuePair<string, string>("HoraF", HoraF.Time.ToString()),
-            //            new KeyValuePair<string, string>("Nivel", NivelPicker.SelectedItem.ToString()),
-            //            new KeyValuePair<string, string>("Pista", Pista.Text),
-            //            new KeyValuePair<string, string>("Precio", Precio.Text)
-            //        };
-            //    }
-            //    else
-            //    {
-            //        throw new FormatException();
-            //    }
-            //    RestService restService = new RestService();
-            //    if (datosPost != null)
-            //    {
-            //        Datos datos = await restService.Post<Datos>(Url, datosPost);
-            //        if (datos != null)
-            //        {
-            //            switch (datos.Codigo)
-            //            {
-            //                case 1:
-            //                    await Navigation.PushAsync(new PartidosPadel(Usuario));
-            //                    break;
-            //                case 101:
-            //                    Console.WriteLine("101");
-            //                    //info.TextColor = Color.IndianRed;
-            //                    //info.Text = datos.Mensaje.ToString();
-            //                    break;
-            //                case 102:
-            //                    Console.WriteLine("102");
-            //                    //info.TextColor = Color.IndianRed;
-            //                    //info.Text += datos.Mensaje.ToString();
-            //                    break;
-            //                case 103:
-            //                    Console.WriteLine("103");
-            //                    //info.TextColor = Color.IndianRed;
-            //                    //info.Text = datos.Mensaje.ToString();
-            //                    break;
-            //                case 104:
-            //                    Console.WriteLine("104");
-            //                    //info.TextColor = Color.IndianRed;
-            //                    //info.Text = datos.Mensaje.ToString();
-            //                    break;
-            //                case 105:
-            //                    Console.WriteLine("105");
-            //                    //info.TextColor = Color.IndianRed;
-            //                    //info.Text = datos.Mensaje.ToString();
-            //                    break;
-            //            }
-            //        }
-            //    }
-            //}
-            //catch (Newtonsoft.Json.JsonReaderException ex)
-            //{
-            //    Console.WriteLine(ex.Message + ex.StackTrace);
-            //}
-            //catch (FormatException ex)
-            //{
-            //    Console.WriteLine(ex.Message + ex.StackTrace);
-            //}
+            Datos datos = await restService.Post<Datos>(Url, new List<KeyValuePair<string, string>>() {
+                new KeyValuePair<string, string>("Id_partido", Partido.Id_Partido.ToString()),
+                new KeyValuePair<string, string>("Id_usuario", Usuario.Id_usuario.ToString()) });
+            if (datos != null)
+            {
+                switch (datos.Codigo)
+                {
+                    case 1:
+                        info.TextColor = Color.Blue;
+                        info.Text = datos.Mensaje.ToString();
+                        await Navigation.PopAsync();
+                        break;
+                    case 101:
+                        Console.WriteLine("101");
+                        info.TextColor = Color.IndianRed;
+                        info.Text = datos.Mensaje.ToString();
+                        break;
+                    case 102:
+                        Console.WriteLine("102");
+                        info.TextColor = Color.IndianRed;
+                        info.Text += datos.Mensaje.ToString();
+                        break;
+                    case 103:
+                        Console.WriteLine("103");
+                        info.TextColor = Color.IndianRed;
+                        info.Text = datos.Mensaje.ToString();
+                        break;
+                    case 104:
+                        Console.WriteLine("104");
+                        info.TextColor = Color.IndianRed;
+                        info.Text = datos.Mensaje.ToString();
+                        break;
+                    case 105:
+                        Console.WriteLine("105");
+                        info.TextColor = Color.IndianRed;
+                        info.Text = datos.Mensaje.ToString();
+                        break;
+                    case 111:
+                        info.TextColor = Color.IndianRed;
+                        info.Text = datos.Mensaje.ToString();
+                        break;
+                }
+            }
+        }
+
+        //Botón de vuelta atrás
+        private async void OnAtrasClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
     }
 }

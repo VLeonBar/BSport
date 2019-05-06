@@ -20,24 +20,21 @@ namespace BSport
         {
             InitializeComponent();
             Usuario = usuario;
+            NavigationPage.SetHasBackButton(this, false);
         }
         async void OnBtnMenuClicked(object sender, EventArgs args)
         {
             switch (((Button)sender).Text)
             {
-                //case "Pádel":
-                //    await Navigation.PushAsync(new Padel());
-                //    break;
+                case "Pádel":
+                    await Navigation.PushAsync(new PartidosPadel(Usuario));
+                    break;
                 case "Fútbol":
                     Console.WriteLine("POS VA A SER FURBO");
                     break;
                 default:
                     break;
             }
-        }
-        async void OnBtnPadelClicked(object sender, EventArgs args)
-        {
-            await Navigation.PushAsync(new PartidosPadel(Usuario));
         }
     }
 }

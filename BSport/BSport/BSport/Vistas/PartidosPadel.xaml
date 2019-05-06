@@ -20,11 +20,11 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Button x:Name="perfil" Text="Perfil" Grid.Row="0" Grid.RowSpan="3"/>
-                <!--NO ENTIENDO HOW TO USE LA INTERFAZ ME VOY A PEGAR UN TIRO-->
-                <Picker Title="Cambiar nivel" HorizontalOptions="Center" Grid.Row="0" Grid.Column="1"  Grid.RowSpan="3">
+                <!--DE MOMENTO TODAS LAS OPCIONES DE FILTRO DE PARTIDOS NO ESTÁN IMPLEMENTADAS EN ESTA VERSIÓN-->
+                <!--<Picker Title="Cambiar nivel" HorizontalOptions="Center" Grid.Row="0" Grid.Column="1"  Grid.RowSpan="3">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
-                            <x:String>Básico I</x:String>
+                            <x:String>Básico I</x:String> >
                             <x:String>Básico II</x:String>
                             <x:String>Intermedio I</x:String>
                             <x:String>Intermedio II</x:String>
@@ -33,9 +33,9 @@
                             <x:String>Avanzado II</x:String>
                         </x:Array>
                     </Picker.ItemsSource>
-                </Picker>
+                </Picker>-->
                 <!--<Picker Title="Cambiar nivel" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="2" Grid.Column="1" />-->
-                <Button Text="Ajustes" Grid.Row="0" Grid.Column="2" Grid.RowSpan="3"/>
+                <Button Text="Mis partidos" Grid.Row="0" Grid.Column="2" Grid.RowSpan="3"/>
             </Grid>
             <ListView x:Name="listaPartidos"  HasUnevenRows="True" ItemSelected="OnListItemSelected">
                 <ListView.ItemTemplate>
@@ -100,7 +100,8 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Button x:Name="btnVer" Text="Ver partido" Grid.Row="0" Grid.Column="1"  Grid.RowSpan="3" Clicked="OnVerClicked"/>
+                <Label x:Name="info" />
+                <Button x:Name="btnVer" Text="Información del partido" Grid.Row="0" Grid.Column="1"  Grid.RowSpan="3" Clicked="OnVerClicked"/>
                 <!--NO ENTIENDO HOW TO USE LA INTERFAZ ME VOY A PEGAR UN TIRO-->
                 <Button Text="Apuntarme" HorizontalOptions="Center" Grid.Row="0" Grid.RowSpan="3" Clicked="OnApuntarClicked"/>
                 <!--<Picker Title="Cambiar nivel" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="2" Grid.Column="1" />-->
