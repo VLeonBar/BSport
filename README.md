@@ -15,7 +15,6 @@ Semana 4 y 5: 15 a 28 de Abril.
 	A finales de la segunda semana, el funcionamiento del login y el registro en la APP funciona correctamente y creo las tablas de partidos y la tabla relacional entre partidos y usuarios(jugadores). Me dispongo a terminar la API para crear y ver los partidos por cada usuario. 
 	
 Semana 6: 29 de Abril a 5 de Mayo.
-	
 	Creo los archivos de la API necesarios para cargar la información de la aplicación, información de partidos disponibles, información de cada partido, así como creación de partidos. 
 	Configuro el servidor en XAMPP en el ordenador de mi casa para que sirva como servidor Online.
 	Creo y construyo la APK del proyecto.
