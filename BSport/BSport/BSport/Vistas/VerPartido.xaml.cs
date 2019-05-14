@@ -25,6 +25,7 @@ namespace BSport.Vistas
         protected async override void OnAppearing()
         {
             base.OnAppearing();
+            info.Text = "";
             Lugar.Text = Partido.Lugar;
             Precio.Text = Partido.Precio.ToString() + "€";
             Pista.Text = "Nº" + Partido.Pista.ToString();
@@ -34,7 +35,7 @@ namespace BSport.Vistas
             Nivel.Text = Partido.Nivel;
 
             RestService restService = new RestService();
-            string Url = "http://47.63.67.93:54321/api_bsport/select/jugadores_partido.php";
+            string Url = "http://47.62.12.161:54321/api_bsport/select/jugadores_partido.php";
 
             Datos datos = await restService.Post<Datos>(Url, new List<KeyValuePair<string, string>>() { new KeyValuePair<string, string>("Id_partido", Partido.Id_Partido.ToString()) });
             if (datos != null)

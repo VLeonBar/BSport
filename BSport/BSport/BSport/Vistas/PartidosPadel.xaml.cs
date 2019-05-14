@@ -16,13 +16,14 @@ namespace BSport.Vistas
     {
         Partido p;
         public Usuario Usuario { get; set; }
+        bool vuelve = true;
         public PartidosPadel(Usuario usuario)
         {
             InitializeComponent();
             // TODO
             // Este constructor inicializa su array interno, es ahí dónde debo pretender hacer la petición de datos al servidor y rellenar el array mediante la base de datos. (??????)
             Usuario = usuario;
-            perfil.Text = "Perfil : " + Usuario.Nombre + Usuario.Id_usuario;
+            perfil.Text = "Perfil : " + Usuario.Nombre;
 
         }
         public void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -33,8 +34,8 @@ namespace BSport.Vistas
         {
             if (p != null)
             {
-                await Navigation.PushAsync(new VerPartido(Usuario,p));
-
+                await Navigation.PushAsync(new VerPartido(Usuario, p));
+                vuelve = true;
             }
 
         }
@@ -47,7 +48,7 @@ namespace BSport.Vistas
             if (p != null)
             {
                 RestService restService = new RestService();
-                string Url = "http://47.63.67.93:54321/api_bsport/insert/agrega_jugador_partido.php";
+                string Url = "http://47.62.12.161:54321/api_bsport/insert/agrega_jugador_partido.php";
 
                 Datos datos = await restService.Post<Datos>(Url, new List<KeyValuePair<string, string>>() {
                 new KeyValuePair<string, string>("Id_partido", p.Id_Partido.ToString()),
@@ -87,11 +88,16 @@ namespace BSport.Vistas
                     }
                 }
             }
+            vuelve = false;
             this.OnAppearing();
         }
         protected async override void OnAppearing()
         {
             base.OnAppearing();
+            if (vuelve)
+            {
+                info.Text = "";
+            }
             RestService restService = new RestService();
             string Url = "http://47.62.12.161:54321/api_bsport/select/muestra_partidos.php";
 
