@@ -47,7 +47,7 @@ namespace BSport.Vistas
             if (p != null)
             {
                 RestService restService = new RestService();
-                string Url = "http://47.62.204.243:54321/api_bsport/insert/agrega_jugador_partido.php";
+                string Url = "http://47.63.67.93:54321/api_bsport/insert/agrega_jugador_partido.php";
 
                 Datos datos = await restService.Post<Datos>(Url, new List<KeyValuePair<string, string>>() {
                 new KeyValuePair<string, string>("Id_partido", p.Id_Partido.ToString()),
@@ -93,7 +93,7 @@ namespace BSport.Vistas
         {
             base.OnAppearing();
             RestService restService = new RestService();
-            string Url = "http://47.62.204.243:54321/api_bsport/select/muestra_partidos.php";
+            string Url = "http://47.62.12.161:54321/api_bsport/select/muestra_partidos.php";
 
             Datos datos = await restService.Post<Datos>(Url);
             if (datos != null)

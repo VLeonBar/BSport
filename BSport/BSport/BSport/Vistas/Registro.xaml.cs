@@ -20,7 +20,7 @@ namespace BSport.Vistas
         public Registro()
         {
             InitializeComponent();
-            Url = "http://47.62.204.243:54321/api_bsport//insert/registro_usuario.php";
+            Url = "http://47.62.12.161:54321/api_bsport//insert/registro_usuario.php";
         }
         public async void OnRegistroClicked(object sender, EventArgs args)
         {

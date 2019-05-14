@@ -67,7 +67,7 @@ namespace BSport.Vistas
             try
             {
                 List<KeyValuePair<string, string>> datosPost = null;
-                Url = "http://47.62.204.243:54321/api_bsport/insert/crea_partido.php";
+                Url = "http://47.62.12.161:54321/api_bsport/insert/crea_partido.php";
                 //Comprueba que los campos enviados no sean null ni estén vacíos
                 if (!(String.IsNullOrEmpty(Lugar.Text) || String.IsNullOrEmpty(fecha) || String.IsNullOrEmpty(HoraI.Time.ToString()) || String.IsNullOrEmpty(Precio.Text) ||
                     String.IsNullOrEmpty(HoraF.Time.ToString()) || String.IsNullOrEmpty(NivelPicker.SelectedItem.ToString()) || String.IsNullOrEmpty(Pista.Text)))

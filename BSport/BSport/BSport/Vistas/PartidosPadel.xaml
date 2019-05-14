@@ -91,6 +91,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Label x:Name="info" />
             <Grid BackgroundColor="DarkGray">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -100,7 +101,6 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Label x:Name="info" />
                 <Button x:Name="btnVer" Text="Información del partido" Grid.Row="0" Grid.Column="1"  Grid.RowSpan="3" Clicked="OnVerClicked"/>
                 <!--NO ENTIENDO HOW TO USE LA INTERFAZ ME VOY A PEGAR UN TIRO-->
                 <Button Text="Apuntarme" HorizontalOptions="Center" Grid.Row="0" Grid.RowSpan="3" Clicked="OnApuntarClicked"/>

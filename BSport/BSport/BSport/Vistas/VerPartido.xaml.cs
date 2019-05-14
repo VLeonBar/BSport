@@ -34,7 +34,7 @@ namespace BSport.Vistas
             Nivel.Text = Partido.Nivel;
 
             RestService restService = new RestService();
-            string Url = "http://47.62.204.243:54321/api_bsport/select/jugadores_partido.php";
+            string Url = "http://47.63.67.93:54321/api_bsport/select/jugadores_partido.php";
 
             Datos datos = await restService.Post<Datos>(Url, new List<KeyValuePair<string, string>>() { new KeyValuePair<string, string>("Id_partido", Partido.Id_Partido.ToString()) });
             if (datos != null)
@@ -98,7 +98,7 @@ namespace BSport.Vistas
         private async void OnAnadirClicked(object sender, EventArgs e)
         {
             RestService restService = new RestService();
-            string Url = "http://47.62.204.243:54321/api_bsport/insert/agrega_jugador_partido.php";
+            string Url = "http://47.62.12.161:54321/api_bsport/insert/agrega_jugador_partido.php";
 
             Datos datos = await restService.Post<Datos>(Url, new List<KeyValuePair<string, string>>() {
                 new KeyValuePair<string, string>("Id_partido", Partido.Id_Partido.ToString()),
