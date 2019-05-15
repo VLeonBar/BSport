@@ -12,21 +12,39 @@ namespace BSport.Funciones
     {
         async public Task<T> Post<T>(string Url, List<KeyValuePair<string, string>> datosPost)
         {
+            try
+            {
+                HttpClient client = new HttpClient();
+                var respuesta = await client.PostAsync(Url, new FormUrlEncodedContent(datosPost));
+                if (respuesta.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    var contenido = await respuesta.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<T>(contenido);
+                }
+            }
+            catch
+            {
 
-            HttpClient client = new HttpClient();
-            var respuesta = await client.PostAsync(Url, new FormUrlEncodedContent(datosPost));
-            var contenido = await respuesta.Content.ReadAsStringAsync();
-
-            return JsonConvert.DeserializeObject<T>(contenido);
+            }
+            return default(T);
         }
         async public Task<T> Post<T>(string Url)
         {
+            try
+            {
+                HttpClient client = new HttpClient();
+                var respuesta = await client.PostAsync(Url, null);
+                if (respuesta.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    var contenido = await respuesta.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<T>(contenido);
+                }
+            }
+            catch
+            {
 
-            HttpClient client = new HttpClient();
-            var respuesta = await client.PostAsync(Url, null);
-            var contenido = await respuesta.Content.ReadAsStringAsync();
-
-            return JsonConvert.DeserializeObject<T>(contenido);
+            }
+            return default(T);
         }
         public RestService()
         {

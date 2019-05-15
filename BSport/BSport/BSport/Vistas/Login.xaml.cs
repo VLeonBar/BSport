@@ -35,27 +35,30 @@ namespace BSport.Vistas
                 };
 
             Datos datos = await restService.Post<Datos>(Url, datosPost);
-
-            switch (datos.Codigo)
+            if (datos != null)
             {
-                case 1:
-                    info.TextColor = Color.CadetBlue;
-                    info.Text = "Credenciales correctas...";
-                    Usuario usuario = datos.Usuario;
-                    await Navigation.PushAsync(new Menu(usuario));
-                    break;
-                case 101:
-                    info.TextColor = Color.IndianRed;
-                    info.Text = datos.Mensaje.ToString();
-                    break;
-                case 102:
-                    info.TextColor = Color.IndianRed;
-                    info.Text = datos.Mensaje.ToString();
-                    break;
-                case 103:
-                    info.TextColor = Color.IndianRed;
-                    info.Text = datos.Mensaje.ToString();
-                    break;
+
+                switch (datos.Codigo)
+                {
+                    case 1:
+                        info.TextColor = Color.CadetBlue;
+                        info.Text = "Credenciales correctas...";
+                        Usuario usuario = datos.Usuario;
+                        await Navigation.PushAsync(new Menu(usuario));
+                        break;
+                    case 101:
+                        info.TextColor = Color.IndianRed;
+                        info.Text = datos.Mensaje.ToString();
+                        break;
+                    case 102:
+                        info.TextColor = Color.IndianRed;
+                        info.Text = datos.Mensaje.ToString();
+                        break;
+                    case 103:
+                        info.TextColor = Color.IndianRed;
+                        info.Text = datos.Mensaje.ToString();
+                        break;
+                }
             }
         }
         public async void OnRegistroClicked(object sender, EventArgs args)

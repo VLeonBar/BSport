@@ -43,9 +43,7 @@ namespace BSport.Vistas
                     new KeyValuePair<string, string>("Nombre", usuNom.Text),
                     new KeyValuePair<string, string>("Email", mail.Text)
                 };
-
                 datos = await restService.Post<Datos>(Url, datosPost);
-
             }
             catch (FormatException)
             {
