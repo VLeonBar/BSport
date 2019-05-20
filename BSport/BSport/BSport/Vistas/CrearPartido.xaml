@@ -69,6 +69,7 @@
                 <Label x:Name="lblJ3" Text="Jugador 3" VerticalOptions="Center"/>
                 <Entry x:Name="entJ3" Placeholder="Nombre del jugador" VerticalOptions="Center"/>
             </StackLayout>
+            <Label x:Name="info" />
             <Button x:Name="btnCrear" Text="Crear" HeightRequest="60" VerticalOptions="EndAndExpand" Clicked="OnCrearClicked"/>
             <Button x:Name="btnCancelar" Text="Cancelar" HeightRequest="60" VerticalOptions="End" Clicked="OnCancelarClicked"/>
         </StackLayout>

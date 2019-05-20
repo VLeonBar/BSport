@@ -25,6 +25,7 @@ namespace BSport.Vistas
             Fecha.Date = DateTime.Today;
             HoraI.Time = new TimeSpan(0, 0, 0);
             HoraF.Time = new TimeSpan(0, 0, 0);
+            NivelPicker.SelectedIndex = 0;
         }
 
         private void StepperJugadores_ValueChanged(object sender, ValueChangedEventArgs e)
@@ -72,6 +73,8 @@ namespace BSport.Vistas
                 if (!(String.IsNullOrEmpty(Lugar.Text) || String.IsNullOrEmpty(fecha) || String.IsNullOrEmpty(HoraI.Time.ToString()) || String.IsNullOrEmpty(Precio.Text) ||
                     String.IsNullOrEmpty(HoraF.Time.ToString()) || String.IsNullOrEmpty(NivelPicker.SelectedItem.ToString()) || String.IsNullOrEmpty(Pista.Text)))
                 {
+                    Convert.ToSingle(Precio.Text);
+                    Convert.ToInt32(Pista.Text);
                     datosPost = new List<KeyValuePair<string, string>>
                     {
                         new KeyValuePair<string, string>("Id_usuario", Usuario.Id_usuario),
@@ -100,28 +103,28 @@ namespace BSport.Vistas
                                 break;
                             case 101:
                                 Console.WriteLine("101");
-                                //info.TextColor = Color.IndianRed;
-                                //info.Text = datos.Mensaje.ToString();
+                                info.TextColor = Color.IndianRed;
+                                info.Text = datos.Mensaje.ToString();
                                 break;
                             case 102:
                                 Console.WriteLine("102");
-                                //info.TextColor = Color.IndianRed;
-                                //info.Text += datos.Mensaje.ToString();
+                                info.TextColor = Color.IndianRed;
+                                info.Text += datos.Mensaje.ToString();
                                 break;
                             case 103:
                                 Console.WriteLine("103");
-                                //info.TextColor = Color.IndianRed;
-                                //info.Text = datos.Mensaje.ToString();
+                                info.TextColor = Color.IndianRed;
+                                info.Text = datos.Mensaje.ToString();
                                 break;
                             case 104:
                                 Console.WriteLine("104");
-                                //info.TextColor = Color.IndianRed;
-                                //info.Text = datos.Mensaje.ToString();
+                                info.TextColor = Color.IndianRed;
+                                info.Text = datos.Mensaje.ToString();
                                 break;
                             case 105:
                                 Console.WriteLine("105");
-                                //info.TextColor = Color.IndianRed;
-                                //info.Text = datos.Mensaje.ToString();
+                                info.TextColor = Color.IndianRed;
+                                info.Text = datos.Mensaje.ToString();
                                 break;
                         }
                     }
@@ -129,7 +132,8 @@ namespace BSport.Vistas
             }
             catch (FormatException ex)
             {
-                Console.WriteLine(ex.Message + ex.StackTrace);
+                info.TextColor = Color.IndianRed;
+                info.Text = "Datos introducidos no válidos";
             }
         }
     }
