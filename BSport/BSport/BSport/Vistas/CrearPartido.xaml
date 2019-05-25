@@ -16,9 +16,9 @@
                 <Label Text="Lugar" VerticalOptions="Center"/>
                 <Entry x:Name="Lugar" Placeholder="Ej. iPadel"/>
                 <Label Text="Precio" VerticalOptions="Center"/>
-                <Entry x:Name="Precio" Placeholder="Precio por persona" VerticalOptions="Center" />
+                <Entry x:Name="Precio" Placeholder="Precio por persona" VerticalOptions="Center" MaxLength="3"/>
                 <Label Text="Pista" VerticalOptions="Center"/>
-                <Entry x:Name="Pista" Placeholder="Nº" VerticalOptions="Center" />
+                <Entry x:Name="Pista" Placeholder="Nº" VerticalOptions="Center" MaxLength="3"/>
             </StackLayout>
             
             <StackLayout Orientation="Horizontal">
